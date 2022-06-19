@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BeerBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name beer 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bg-Vd-pSq">
+                                <rect key="frame" x="31" y="154" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price 1, $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-6z-mX0">
+                                <rect key="frame" x="44" y="197" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJr-Wk-If6">
+                                <rect key="frame" x="43" y="238" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remains 1, L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I31-K1-hKY">
+                                <rect key="frame" x="31" y="281" width="95" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name beer 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vji-me-Fi5">
+                                <rect key="frame" x="158" y="154" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price 2, $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btT-Kz-uiu">
+                                <rect key="frame" x="171" y="197" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vR-Dr-MOE">
+                                <rect key="frame" x="169" y="238" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remains 2, L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="559-jC-wTO">
+                                <rect key="frame" x="158.5" y="281" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name beer 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtq-uQ-HED">
+                                <rect key="frame" x="289" y="154" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price 3, $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLD-ar-cSX">
+                                <rect key="frame" x="302" y="197" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjW-Hk-O1j">
+                                <rect key="frame" x="300" y="238" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remains 3, L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRR-58-xRc">
+                                <rect key="frame" x="289" y="281" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3u-5k-4s2">
+                                <rect key="frame" x="31" y="327" width="96" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Buy 0.5L"/>
+                                <connections>
+                                    <action selector="buyFirstBeer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xlq-6r-0Gj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cash, $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ig-Qh-a8X">
+                                <rect key="frame" x="157" y="414" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Volume, L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkP-uA-6f7">
+                                <rect key="frame" x="148" y="458" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRp-60-9k7">
+                                <rect key="frame" x="158" y="327" width="97" height="31"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Buy 0.5L" subtitle=""/>
+                                <connections>
+                                    <action selector="buySecondBeer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y7I-ym-gDI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5j-U1-zPe">
+                                <rect key="frame" x="289" y="327" width="97" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Buy 0.5L"/>
+                                <connections>
+                                    <action selector="buyThirdBeer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pB5-Co-kQX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEj-be-7XG">
+                                <rect key="frame" x="126" y="500" width="157" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Start New Shift"/>
+                                <connections>
+                                    <action selector="startNewShift:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Dl-X3-Bqg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dj-yU-28r">
+                                <rect key="frame" x="142" y="590" width="130" height="41"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Update Remains" subtitle="">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="updateRemains:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aux-5i-A04"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jtq-uQ-HED" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="289" id="1HF-Se-ynM"/>
+                            <constraint firstItem="XRR-58-xRc" firstAttribute="top" secondItem="LjW-Hk-O1j" secondAttribute="bottom" constant="22" id="1fQ-Nx-XkZ"/>
+                            <constraint firstItem="vji-me-Fi5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="2L3-GJ-dso"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4dj-yU-28r" secondAttribute="trailing" constant="142" id="4tw-g0-cnQ"/>
+                            <constraint firstItem="i5j-U1-zPe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="289" id="6GV-vW-fI4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V1m-6z-mX0" secondAttribute="trailing" constant="300" id="6PR-tS-PS7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i5j-U1-zPe" secondAttribute="trailing" constant="28" id="6qc-7a-HU5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LjW-Hk-O1j" secondAttribute="trailing" constant="38" id="8Fc-e6-V71"/>
+                            <constraint firstItem="jtq-uQ-HED" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="8Xq-GS-eWC"/>
+                            <constraint firstItem="9Ig-Qh-a8X" firstAttribute="top" secondItem="559-jC-wTO" secondAttribute="bottom" constant="112" id="ETZ-gK-XbJ"/>
+                            <constraint firstItem="CEj-be-7XG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="GhV-Ae-h3s"/>
+                            <constraint firstItem="btT-Kz-uiu" firstAttribute="top" secondItem="vji-me-Fi5" secondAttribute="bottom" constant="22" id="Gk1-32-DPa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dLD-ar-cSX" secondAttribute="trailing" constant="40" id="Ioh-fN-07O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BJr-Wk-If6" secondAttribute="trailing" constant="298" id="L1M-kX-Ino"/>
+                            <constraint firstItem="vji-me-Fi5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158" id="LFL-db-9eF"/>
+                            <constraint firstItem="V1m-6z-mX0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="LWc-sM-f9i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vji-me-Fi5" secondAttribute="trailing" constant="158" id="LfE-sw-7hY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jtq-uQ-HED" secondAttribute="trailing" constant="26" id="MbQ-Mw-TWS"/>
+                            <constraint firstItem="V1m-6z-mX0" firstAttribute="top" secondItem="4bg-Vd-pSq" secondAttribute="bottom" constant="22" id="MsM-Kp-vpI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="559-jC-wTO" secondAttribute="trailing" constant="158.5" id="MvI-GF-FsO"/>
+                            <constraint firstItem="4dj-yU-28r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="NVc-Zm-VVW"/>
+                            <constraint firstItem="I31-K1-hKY" firstAttribute="top" secondItem="BJr-Wk-If6" secondAttribute="bottom" constant="22" id="Nxk-Mk-W4c"/>
+                            <constraint firstItem="XRR-58-xRc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="289" id="OSv-MU-tyd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ig-Qh-a8X" secondAttribute="trailing" constant="157" id="Oc8-zb-xjp"/>
+                            <constraint firstItem="V3u-5k-4s2" firstAttribute="top" secondItem="I31-K1-hKY" secondAttribute="bottom" constant="25" id="Q5a-eP-tzN"/>
+                            <constraint firstItem="I31-K1-hKY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="Qus-UA-m9a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3vR-Dr-MOE" secondAttribute="trailing" constant="169" id="REB-bT-VG1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EkP-uA-6f7" secondAttribute="trailing" constant="149" id="RGj-FH-u7f"/>
+                            <constraint firstItem="4bg-Vd-pSq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="RjD-7Z-vpV"/>
+                            <constraint firstItem="559-jC-wTO" firstAttribute="top" secondItem="3vR-Dr-MOE" secondAttribute="bottom" constant="22" id="Rn8-j9-4dB"/>
+                            <constraint firstItem="CEj-be-7XG" firstAttribute="top" secondItem="EkP-uA-6f7" secondAttribute="bottom" constant="21" id="Rpm-r4-A0W"/>
+                            <constraint firstItem="EkP-uA-6f7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="148" id="RsW-uj-9hq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CRp-60-9k7" secondAttribute="trailing" constant="159" id="Sit-pH-ody"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4bg-Vd-pSq" secondAttribute="trailing" constant="287" id="T7W-JV-hjV"/>
+                            <constraint firstItem="V3u-5k-4s2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="WCr-L6-iVa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="btT-Kz-uiu" secondAttribute="trailing" constant="171" id="YTi-B7-lBG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CEj-be-7XG" secondAttribute="trailing" constant="131" id="Zjm-J2-HTT"/>
+                            <constraint firstItem="btT-Kz-uiu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="171" id="bUy-b0-R1P"/>
+                            <constraint firstItem="i5j-U1-zPe" firstAttribute="top" secondItem="XRR-58-xRc" secondAttribute="bottom" constant="25" id="cni-1a-Y4W"/>
+                            <constraint firstItem="4bg-Vd-pSq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="ebr-MJ-RL4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I31-K1-hKY" secondAttribute="trailing" constant="288" id="eds-Pe-jq9"/>
+                            <constraint firstItem="EkP-uA-6f7" firstAttribute="top" secondItem="9Ig-Qh-a8X" secondAttribute="bottom" constant="23" id="fxn-7R-9vr"/>
+                            <constraint firstItem="dLD-ar-cSX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="302" id="heh-CB-HVZ"/>
+                            <constraint firstItem="4dj-yU-28r" firstAttribute="top" secondItem="CRp-60-9k7" secondAttribute="bottom" constant="232" id="hfW-xL-UaQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XRR-58-xRc" secondAttribute="trailing" constant="28" id="iSb-fQ-JA4"/>
+                            <constraint firstItem="3vR-Dr-MOE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="169" id="ixL-Fn-eRx"/>
+                            <constraint firstItem="CRp-60-9k7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158" id="jyF-3f-Dx7"/>
+                            <constraint firstItem="dLD-ar-cSX" firstAttribute="top" secondItem="jtq-uQ-HED" secondAttribute="bottom" constant="22" id="kHw-GG-p8B"/>
+                            <constraint firstItem="559-jC-wTO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158.5" id="kbm-QJ-TRI"/>
+                            <constraint firstItem="9Ig-Qh-a8X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="157" id="kpo-Se-soC"/>
+                            <constraint firstItem="BJr-Wk-If6" firstAttribute="top" secondItem="V1m-6z-mX0" secondAttribute="bottom" constant="20" id="o7w-fV-sBW"/>
+                            <constraint firstItem="CRp-60-9k7" firstAttribute="top" secondItem="559-jC-wTO" secondAttribute="bottom" constant="25" id="ofd-Vf-VQp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V3u-5k-4s2" secondAttribute="trailing" constant="287" id="p6g-il-it6"/>
+                            <constraint firstItem="3vR-Dr-MOE" firstAttribute="top" secondItem="btT-Kz-uiu" secondAttribute="bottom" constant="20" id="pkM-FA-gcw"/>
+                            <constraint firstItem="BJr-Wk-If6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="reu-Dr-huy"/>
+                            <constraint firstItem="LjW-Hk-O1j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="300" id="uPj-X9-tmh"/>
+                            <constraint firstItem="LjW-Hk-O1j" firstAttribute="top" secondItem="dLD-ar-cSX" secondAttribute="bottom" constant="20" id="vgI-Uk-R4g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buyFirstBeerBtn" destination="V3u-5k-4s2" id="AKO-id-5d5"/>
+                        <outlet property="buySecondBeerBtn" destination="CRp-60-9k7" id="tPx-Mm-7cp"/>
+                        <outlet property="buyThirdBeerBtn" destination="i5j-U1-zPe" id="2iX-6m-MYo"/>
+                        <outlet property="firsBeerCountryLbl" destination="BJr-Wk-If6" id="Cjg-1O-3Zg"/>
+                        <outlet property="firsBeerPriceLbl" destination="V1m-6z-mX0" id="9uX-10-ZGQ"/>
+                        <outlet property="firsBeerRemVolumeLbl" destination="I31-K1-hKY" id="2QF-bh-QsH"/>
+                        <outlet property="firstBeerNameLbl" destination="4bg-Vd-pSq" id="xmk-OW-2UO"/>
+                        <outlet property="secondBeerCountryLbl" destination="3vR-Dr-MOE" id="4JV-4K-aF6"/>
+                        <outlet property="secondBeerNameLbl" destination="vji-me-Fi5" id="8o2-kA-9Jy"/>
+                        <outlet property="secondBeerPriceLbl" destination="btT-Kz-uiu" id="APL-oW-lzl"/>
+                        <outlet property="secondBeerRemVolumeLbl" destination="559-jC-wTO" id="G9T-cb-h2j"/>
+                        <outlet property="thirdBeerCountryLbl" destination="LjW-Hk-O1j" id="kDx-P0-AfJ"/>
+                        <outlet property="thirdBeerNameLbl" destination="jtq-uQ-HED" id="yrQ-ny-QXm"/>
+                        <outlet property="thirdBeerPriceLbl" destination="dLD-ar-cSX" id="Wq6-3O-HJT"/>
+                        <outlet property="thirdBeerRemVolumeLbl" destination="XRR-58-xRc" id="dEU-Gu-e3C"/>
+                        <outlet property="totalCashLbl" destination="9Ig-Qh-a8X" id="Su5-iA-D90"/>
+                        <outlet property="totalVolumeLbl" destination="EkP-uA-6f7" id="Gd6-CZ-zam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
