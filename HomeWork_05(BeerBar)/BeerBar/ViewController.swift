@@ -28,12 +28,12 @@ class Beer {
 // singleton manager class
 class SellManager {
     static let shared = SellManager()
-    var gain = 0
-    var volume = 0.0
+    var totalCash = 0
+    var totalVolume = 0.0
     // function buying beer
     func buyIt(_ n: Beer) {
-        gain += n.price
-        volume += 0.5
+        totalCash += n.price
+        totalVolume += 0.5
         n.remainVolume -= 0.5
     }
 }
@@ -82,8 +82,8 @@ class ViewController: UIViewController {
     /// This function update lables on UI
     func updateUI() {
         // lables of total result
-        totalCashLbl.text = "\(SellManager.shared.gain) $"
-        totalVolumeLbl.text = "\(SellManager.shared.volume) L"
+        totalCashLbl.text = "\(SellManager.shared.totalCash) $"
+        totalVolumeLbl.text = "\(SellManager.shared.totalVolume) L"
         // lables of remain volume beer
         firsBeerRemVolumeLbl.text = "\(beerGuinness.remainVolume) L"
         secondBeerRemVolumeLbl.text = "\(beerCorona.remainVolume) L"
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     }
     
     /// Buying first beer bottle function
-    @IBAction func buyFirstBeerBtn(_ sender: Any) {
+    @IBAction func buyFirstBeer(_ sender: Any) {
         SellManager.shared.buyIt(beerGuinness)
         updateUI()
         if beerGuinness.remainVolume < 0.5 {
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
         }
     }
     /// Buying second beer bottle function
-    @IBAction func buySecondBeerBtn(_ sender: Any) {
+    @IBAction func buySecondBeer(_ sender: Any) {
         SellManager.shared.buyIt(beerCorona)
         updateUI()
         if beerCorona.remainVolume < 0.5 {
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
         }
     }
     /// Buying third beer bottle function
-    @IBAction func buyThirdBeerBtn(_ sender: Any) {
+    @IBAction func buyThirdBeer(_ sender: Any) {
         SellManager.shared.buyIt(beerLidskae)
         updateUI()
         if beerLidskae.remainVolume < 0.5 {
@@ -137,13 +137,13 @@ class ViewController: UIViewController {
         }
     }
     /// The function of starting a new shift (reset total cash and total volume of beer)
-    @IBAction func startNewShiftBtn(_ sender: Any) {
-        SellManager.shared.gain = 0
-        SellManager.shared.volume = 0.0
+    @IBAction func startNewShift(_ sender: Any) {
+        SellManager.shared.totalCash = 0
+        SellManager.shared.totalVolume = 0.0
         updateUI()
     }
     /// Updating remains volume of beer to 100 L
-    @IBAction func updateRemainsBtn(_ sender: Any) {
+    @IBAction func updateRemains(_ sender: Any) {
         beerGuinness.remainVolume = 100.0
         beerCorona.remainVolume = 100.0
         beerLidskae.remainVolume = 100.0
