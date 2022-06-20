@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     }
     
     /// Buying first beer bottle function
-    @IBAction func buyFirstBeer(_ sender: Any) {
+    @IBAction func buyFirstBeerBtn(_ sender: Any) {
         SellManager.shared.buyIt(beerGuinness)
         updateUI()
         if beerGuinness.remainVolume < 0.5 {
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
         }
     }
     /// Buying second beer bottle function
-    @IBAction func buySecondBeer(_ sender: Any) {
+    @IBAction func buySecondBeerBtn(_ sender: Any) {
         SellManager.shared.buyIt(beerCorona)
         updateUI()
         if beerCorona.remainVolume < 0.5 {
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
         }
     }
     /// Buying third beer bottle function
-    @IBAction func buyThirdBeer(_ sender: Any) {
+    @IBAction func buyThirdBeerBtn(_ sender: Any) {
         SellManager.shared.buyIt(beerLidskae)
         updateUI()
         if beerLidskae.remainVolume < 0.5 {
@@ -137,13 +137,13 @@ class ViewController: UIViewController {
         }
     }
     /// The function of starting a new shift (reset total cash and total volume of beer)
-    @IBAction func startNewShift(_ sender: Any) {
+    @IBAction func startNewShiftBtn(_ sender: Any) {
         SellManager.shared.gain = 0
         SellManager.shared.volume = 0.0
         updateUI()
     }
     /// Updating remains volume of beer to 100 L
-    @IBAction func updateRemains(_ sender: Any) {
+    @IBAction func updateRemainsBtn(_ sender: Any) {
         beerGuinness.remainVolume = 100.0
         beerCorona.remainVolume = 100.0
         beerLidskae.remainVolume = 100.0
