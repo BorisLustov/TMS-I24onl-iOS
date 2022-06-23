@@ -23,12 +23,12 @@ class ViewControllerGame2: UIViewController {
         super.viewDidAppear(animated)
         
         // Setting the button parameters
-        let widghBtn = 150
+        let widthBtn = 150
         let heightBtn = 50
-        let xBtn = (Int(view.bounds.width) / 2) - (widghBtn / 2)
+        let xBtn = (Int(view.bounds.width) / 2) - (widthBtn / 2)
         let yBtn = Int(view.bounds.height) - (heightBtn * 2)
         
-        newSquareBtn.frame = CGRect(x: xBtn, y: yBtn, width: widghBtn, height: heightBtn)
+        newSquareBtn.frame = CGRect(x: xBtn, y: yBtn, width: widthBtn, height: heightBtn)
         newSquareBtn.backgroundColor = .randomColor()
         newSquareBtn.layer.cornerRadius = newSquareBtn.bounds.height / 2
         newSquareBtn.clipsToBounds = true
