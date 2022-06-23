@@ -5,6 +5,8 @@
 //  Created by Борис Лустов on 21.06.22.
 //
 
+// Game1 for cats (random Circles)
+
 import UIKit
 
 // Method of creating a random color

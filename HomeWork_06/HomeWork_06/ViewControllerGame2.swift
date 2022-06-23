@@ -5,6 +5,8 @@
 //  Created by Борис Лустов on 21.06.22.
 //
 
+// Game2 random Squares
+
 import UIKit
 
 class ViewControllerGame2: UIViewController {
