@@ -24,6 +24,8 @@ enum SquareColor: CaseIterable {
     case green
     case magenta
     case orange
+    case yellow
+    case purple
     
     /// Random color for the view and text of this color for the label
     func randomColorAndText() -> UILabel{
@@ -57,6 +59,12 @@ enum SquareColor: CaseIterable {
         case .some(.red):
             colorAndText.backgroundColor = .red
             colorAndText.text = "Red"
+        case .some(.yellow):
+            colorAndText.backgroundColor = .yellow
+            colorAndText.text = "Yellow"
+        case .some(.purple):
+            colorAndText.backgroundColor = .purple
+            colorAndText.text = "Purple"
         }
         return colorAndText
     }
