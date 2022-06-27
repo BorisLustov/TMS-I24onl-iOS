@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A456919A2869C0780074CAD8 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45691992869C0780074CAD8 /* RandomColor.swift */; };
 		A49525E82861D147008B270D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49525E72861D147008B270D /* AppDelegate.swift */; };
 		A49525EA2861D147008B270D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49525E92861D147008B270D /* SceneDelegate.swift */; };
 		A49525EC2861D147008B270D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49525EB2861D147008B270D /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A45691992869C0780074CAD8 /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		A49525E42861D147008B270D /* HomeWork_06.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork_06.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49525E72861D147008B270D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A49525E92861D147008B270D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				A49525E72861D147008B270D /* AppDelegate.swift */,
 				A49525E92861D147008B270D /* SceneDelegate.swift */,
 				A49525EB2861D147008B270D /* ViewController.swift */,
+				A45691992869C0780074CAD8 /* RandomColor.swift */,
 				A49525FD2861D589008B270D /* ViewControllerGame1.swift */,
 				A49525FF2861D5F6008B270D /* ViewControllerGame2.swift */,
 				A49526012861D609008B270D /* ViewControllerGame3.swift */,
@@ -153,6 +156,7 @@
 				A49525E82861D147008B270D /* AppDelegate.swift in Sources */,
 				A49525FE2861D589008B270D /* ViewControllerGame1.swift in Sources */,
 				A49525EA2861D147008B270D /* SceneDelegate.swift in Sources */,
+				A456919A2869C0780074CAD8 /* RandomColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

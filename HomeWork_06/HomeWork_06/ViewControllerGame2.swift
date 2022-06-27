@@ -14,6 +14,11 @@ class ViewControllerGame2: UIViewController {
     // creating of button
     var newSquareBtn: UIButton = UIButton()
     
+    let widthBtn = 150
+    let heightBtn = 50
+    
+    let columnsCount = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .randomColor()
@@ -23,8 +28,7 @@ class ViewControllerGame2: UIViewController {
         super.viewDidAppear(animated)
         
         // Setting the button parameters
-        let widthBtn = 150
-        let heightBtn = 50
+
         let xBtn = (Int(view.bounds.width) / 2) - (widthBtn / 2)
         let yBtn = Int(view.bounds.height) - (heightBtn * 2)
         
@@ -41,28 +45,37 @@ class ViewControllerGame2: UIViewController {
     /// Filling the field with squares
     @objc func createFieldSquares() {
         
-        let columnsCount = 3
-        
         let widthSquare = Int(view.bounds.width) / columnsCount
         let heightSquare = widthSquare
         
-        let rowsCount = Int((Int(view.bounds.height) - 50) / heightSquare)
+        let rowsCount = Int((Int(view.bounds.height) - heightBtn) / heightSquare)
         
-        var x = 0
-        var y = 0
+        var xSquare = 0
+        var ySquare = 0
         
         for _ in 1...(columnsCount * rowsCount) {
             
             let newSquare: UIView = UIView()
-            newSquare.frame = CGRect(x: x, y: y, width: widthSquare, height: heightSquare)
-            newSquare.backgroundColor = .randomColor()
-            x += widthSquare
+            let squareLable: UILabel = UILabel()
+            let randomColorAndText = SquareColor.allCases.randomElement()?.randomColorAndText(view: newSquare, lable: squareLable)
             
-            if x >= Int(view.bounds.width) {
-                x = 0
-                y += heightSquare
+            newSquare.frame = CGRect(x: xSquare, y: ySquare, width: widthSquare, height: heightSquare)
+            newSquare.backgroundColor = randomColorAndText?.0.backgroundColor
+            
+            xSquare += widthSquare
+            
+            if xSquare >= Int(view.bounds.width) {
+                xSquare = 0
+                ySquare += heightSquare
             }
+            
             view.addSubview(newSquare)
+            
+            squareLable.frame = newSquare.bounds
+            squareLable.text = randomColorAndText?.1.text
+            squareLable.textAlignment = .center
+            
+            newSquare.addSubview(squareLable)
         }
         
     }

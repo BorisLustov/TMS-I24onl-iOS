@@ -11,8 +11,15 @@ import UIKit
 
 class ViewControllerGame3: UIViewController {
     
+    // Views for ball
     let ball: UIView = UIView()
     let areaForBall: UIView = UIView()
+    
+    // Movement buttons
+    let upBallBtn: UIButton = UIButton()
+    let downBallBtn: UIButton = UIButton()
+    let leftBallBtn: UIButton = UIButton()
+    let rightBallBtn: UIButton = UIButton()
     
     // Creating coordinates of ball
     var xBall = 0
@@ -21,14 +28,12 @@ class ViewControllerGame3: UIViewController {
     let widthBall = 100
     let heightBall = 100
     
+    // Width and heigth controll buttons
+    let widthBtn = 80
+    let heightBtn = 35
+    
     // Ball movement step
     let step = 25
-    
-    // Movement buttons
-    let upBallBtn: UIButton = UIButton()
-    let downBallBtn: UIButton = UIButton()
-    let leftBallBtn: UIButton = UIButton()
-    let rightBallBtn: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +42,7 @@ class ViewControllerGame3: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // Width and heigth controll buttons
-        let widthBtn = 80
-        let heightBtn = 35
-        
+
         // Create of movement area for ball
         let widthArea = Int(view.bounds.width)
         let heightArea = Int(view.bounds.height) - (heightBtn * 5)

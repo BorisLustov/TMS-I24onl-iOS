@@ -9,18 +9,14 @@
 
 import UIKit
 
-// Method of creating a random color
-extension UIColor {
-    static func randomColor() -> UIColor {
-        return UIColor(red: .random(in: 0.0...1.0), green: .random(in: 0.0...1.0), blue: .random(in: 0.0...1.0), alpha: 1.0)
-    }
-}
-
 class ViewControllerGame1: UIViewController {
     
     // Creating of buttons
     var arrayOfCircles: [UIButton] = [UIButton]()
     var createCircleBtn: UIButton = UIButton()
+    
+    let circleWidth = 100
+    let circleHeight = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +47,6 @@ class ViewControllerGame1: UIViewController {
     @objc func createRandomCircle() {
         
         let newCircle: UIButton = UIButton()
-        let circleWidth = 100
-        let circleHeight = 100
         
         let fieldByWidth = Int(view.bounds.width) - circleWidth
         let fieldByHeight = Int(view.bounds.height) - circleHeight
