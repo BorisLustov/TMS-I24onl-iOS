@@ -57,10 +57,11 @@ class ViewControllerGame2: UIViewController {
             
             let newSquare: UIView = UIView()
             let squareLable: UILabel = UILabel()
-            let randomColorAndText = SquareColor.allCases.randomElement()?.randomColorAndText(view: newSquare, lable: squareLable)
+            
+            let randomColorAndText = SquareColor.allCases.randomElement()?.randomColorAndText()
             
             newSquare.frame = CGRect(x: xSquare, y: ySquare, width: widthSquare, height: heightSquare)
-            newSquare.backgroundColor = randomColorAndText?.0.backgroundColor
+            newSquare.backgroundColor = randomColorAndText?.backgroundColor
             
             xSquare += widthSquare
             
@@ -72,7 +73,7 @@ class ViewControllerGame2: UIViewController {
             view.addSubview(newSquare)
             
             squareLable.frame = newSquare.bounds
-            squareLable.text = randomColorAndText?.1.text
+            squareLable.text = randomColorAndText?.text
             squareLable.textAlignment = .center
             
             newSquare.addSubview(squareLable)

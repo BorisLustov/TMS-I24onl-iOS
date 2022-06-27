@@ -26,40 +26,40 @@ enum SquareColor: CaseIterable {
     case orange
     
     /// Random color for the view and text of this color for the label
-    func randomColorAndText(view: UIView, lable: UILabel) -> (UIView, UILabel){
-        let view = UIView()
-        let lable = UILabel()
-        let a = SquareColor.allCases.randomElement()
-        switch a {
+    func randomColorAndText() -> UILabel{
+        let colorAndText = UILabel()
+        let i = SquareColor.allCases.randomElement()
+        switch i {
         case .none:
-            view.backgroundColor = .randomColor()
-            lable.text = "Some color"
+            colorAndText.backgroundColor = .randomColor()
+            colorAndText.text = "Some color"
         case .some(.blue):
-            view.backgroundColor = .blue
-            lable.text = "Blue"
+            colorAndText.backgroundColor = .blue
+            colorAndText.text = "Blue"
         case .some(.gray):
-            view.backgroundColor = .gray
-            lable.text = "Gray"
+            colorAndText.backgroundColor = .gray
+            colorAndText.text = "Gray"
         case .some(.brown):
-            view.backgroundColor = .brown
-            lable.text = "Brown"
+            colorAndText.backgroundColor = .brown
+            colorAndText.text = "Brown"
         case .some(.cyan):
-            view.backgroundColor = .cyan
-            lable.text = "Cyan"
+            colorAndText.backgroundColor = .cyan
+            colorAndText.text = "Cyan"
         case .some(.green):
-            view.backgroundColor = .green
-            lable.text = "Green"
+            colorAndText.backgroundColor = .green
+            colorAndText.text = "Green"
         case .some(.magenta):
-            view.backgroundColor = .magenta
-            lable.text = "Magenta"
+            colorAndText.backgroundColor = .magenta
+            colorAndText.text = "Magenta"
         case .some(.orange):
-            view.backgroundColor = .orange
-            lable.text = "Orange"
+            colorAndText.backgroundColor = .orange
+            colorAndText.text = "Orange"
         case .some(.red):
-            view.backgroundColor = .red
-            lable.text = "Red"
+            colorAndText.backgroundColor = .red
+            colorAndText.text = "Red"
         }
-        return (view, lable)
+        return colorAndText
     }
 }
+
 
