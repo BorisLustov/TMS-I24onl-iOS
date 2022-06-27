@@ -7,37 +7,6 @@
 
 import UIKit
 
-// MARK: Classes
-
-// class of beer bottle
-class Beer {
-    let name: String
-    let price: Int
-    let country: String
-    var remainVolume: Double
-    
-    init(name: String, price: Int, country: String, remainVolume: Double) {
-        self.name = name
-        self.price = price
-        self.country = country
-        self.remainVolume = remainVolume
-    }
-    
-}
-
-// singleton manager class
-class SellManager {
-    static let shared = SellManager()
-    var totalCash = 0
-    var totalVolume = 0.0
-    // function buying beer
-    func buyIt(_ n: Beer) {
-        totalCash += n.price
-        totalVolume += 0.5
-        n.remainVolume -= 0.5
-    }
-}
-
 class ViewController: UIViewController {
 
     // MARK: Lables
@@ -68,7 +37,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var buyFirstBeerBtn: UIButton!
     @IBOutlet weak var buySecondBeerBtn: UIButton!
     @IBOutlet weak var buyThirdBeerBtn: UIButton!
-    
     
     // MARK: Variables
     

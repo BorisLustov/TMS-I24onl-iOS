@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40441462869C57000F83D7D /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40441452869C57000F83D7D /* Beer.swift */; };
+		A40441482869C5A100F83D7D /* SellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40441472869C5A100F83D7D /* SellManager.swift */; };
 		A4A9BB6C285CA6300090699F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9BB6B285CA6300090699F /* AppDelegate.swift */; };
 		A4A9BB6E285CA6300090699F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9BB6D285CA6300090699F /* SceneDelegate.swift */; };
 		A4A9BB70285CA6300090699F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9BB6F285CA6300090699F /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A40441452869C57000F83D7D /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		A40441472869C5A100F83D7D /* SellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellManager.swift; sourceTree = "<group>"; };
 		A4A9BB68285CA6300090699F /* BeerBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A9BB6B285CA6300090699F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4A9BB6D285CA6300090699F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			children = (
 				A4A9BB6B285CA6300090699F /* AppDelegate.swift */,
 				A4A9BB6D285CA6300090699F /* SceneDelegate.swift */,
+				A40441452869C57000F83D7D /* Beer.swift */,
+				A40441472869C5A100F83D7D /* SellManager.swift */,
 				A4A9BB6F285CA6300090699F /* ViewController.swift */,
 				A4A9BB71285CA6300090699F /* Main.storyboard */,
 				A4A9BB74285CA6310090699F /* Assets.xcassets */,
@@ -141,6 +147,8 @@
 				A4A9BB70285CA6300090699F /* ViewController.swift in Sources */,
 				A4A9BB6C285CA6300090699F /* AppDelegate.swift in Sources */,
 				A4A9BB6E285CA6300090699F /* SceneDelegate.swift in Sources */,
+				A40441462869C57000F83D7D /* Beer.swift in Sources */,
+				A40441482869C5A100F83D7D /* SellManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
