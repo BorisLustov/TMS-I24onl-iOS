@@ -11,20 +11,23 @@ import UIKit
 
 class ViewControllerGame2: UIViewController {
     
-    // creating of button
-    var newSquareBtn: UIButton = UIButton()
+    // Creating of button with parameters
+    var newSquareBtn = UIButton()
     
     let widthBtn = 150
     let heightBtn = 50
     
+    // Number of columns
     let columnsCount = 3
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .randomColor()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
         
         // Setting the button parameters
@@ -55,8 +58,8 @@ class ViewControllerGame2: UIViewController {
         
         for _ in 1...(columnsCount * rowsCount) {
             
-            let newSquare: UIView = UIView()
-            let squareLable: UILabel = UILabel()
+            let newSquare = UIView()
+            let squareLable = UILabel()
             
             let randomColorAndText = SquareColor.allCases.randomElement()!.randomColorAndText()
             

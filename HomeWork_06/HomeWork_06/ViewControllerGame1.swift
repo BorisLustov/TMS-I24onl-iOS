@@ -11,9 +11,9 @@ import UIKit
 
 class ViewControllerGame1: UIViewController {
     
-    // Creating of buttons
-    var arrayOfCircles: [UIButton] = [UIButton]()
-    var createCircleBtn: UIButton = UIButton()
+    // Creating of buttons with parameters
+    var arrayOfCircles = [UIButton]()
+    var createCircleBtn = UIButton()
     
     let circleWidth = 100
     let circleHeight = 100
@@ -46,7 +46,7 @@ class ViewControllerGame1: UIViewController {
     /// Сreating a random circle with setting parameters
     @objc func createRandomCircle() {
         
-        let newCircle: UIButton = UIButton()
+        let newCircle = UIButton()
         
         let fieldByWidth = Int(view.bounds.width) - circleWidth
         let fieldByHeight = Int(view.bounds.height) - circleHeight

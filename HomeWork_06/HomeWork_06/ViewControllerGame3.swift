@@ -9,22 +9,29 @@
 
 import UIKit
 
+enum MoveBall {
+    
+    case up
+    case down
+    case left
+    case right
+}
+
 class ViewControllerGame3: UIViewController {
     
     // Views for ball
-    let ball: UIView = UIView()
-    let areaForBall: UIView = UIView()
+    let ball = UIView()
+    let areaForBall = UIView()
     
     // Movement buttons
-    let upBallBtn: UIButton = UIButton()
-    let downBallBtn: UIButton = UIButton()
-    let leftBallBtn: UIButton = UIButton()
-    let rightBallBtn: UIButton = UIButton()
-    
-    // Creating coordinates of ball
+    let upBallBtn = UIButton()
+    let downBallBtn = UIButton()
+    let leftBallBtn = UIButton()
+    let rightBallBtn = UIButton()
+   
+    // Coordinates and parameters of ball
     var xBall = 0
     var yBall = 0
-    
     let widthBall = 100
     let heightBall = 100
     
@@ -36,11 +43,13 @@ class ViewControllerGame3: UIViewController {
     let step = 25
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .randomColor()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
 
         // Create of movement area for ball
@@ -61,53 +70,51 @@ class ViewControllerGame3: UIViewController {
         
         areaForBall.addSubview(ball)
         
-        // Create UP button with parameters
-        let xUpBtn = (Int(view.bounds.width) / 2) - (widthBtn / 2)
-        let yUpBtn = Int(view.bounds.height) - (heightBtn * 4)
+        /// Setting the parameters of the movement button from the direction
+        func moveBtn(button: UIButton, moveTo: MoveBall) {
+            
+            // Button coordinates
+            var xBtn = 0
+            var yBtn = 0
+           
+            switch moveTo {
+                
+            case .up:
+                xBtn = (Int(view.bounds.width) / 2) - (widthBtn / 2)
+                yBtn = Int(view.bounds.height) - (heightBtn * 4)
+                button.addTarget(self, action: #selector(moveUp), for: .touchUpInside)
+                button.setTitle("UP", for: .normal)
+                
+            case .down:
+                xBtn = (Int(view.bounds.width) / 2) - (widthBtn / 2)
+                yBtn = Int(view.bounds.height) - (heightBtn * 2)
+                button.addTarget(self, action: #selector(moveDown), for: .touchUpInside)
+                button.setTitle("DOWN", for: .normal)
+                
+            case .left:
+                xBtn = (Int(view.bounds.width) / 2) - widthBtn - (widthBtn / 2)
+                yBtn = Int(view.bounds.height) - (heightBtn * 3)
+                button.addTarget(self, action: #selector(moveLeft), for: .touchUpInside)
+                button.setTitle("LEFT", for: .normal)
+                
+            case .right:
+                xBtn = (Int(view.bounds.width) / 2) + widthBtn - (widthBtn / 2)
+                yBtn = Int(view.bounds.height) - (heightBtn * 3)
+                button.addTarget(self, action: #selector(moveRight), for: .touchUpInside)
+                button.setTitle("RIGHT", for: .normal)
+            }
+            
+            button.frame = CGRect(x: xBtn, y: yBtn, width: widthBtn, height: heightBtn)
+            button.backgroundColor = .gray
+            button.layer.cornerRadius = button.bounds.height / 2
+            view.addSubview(button)
+        }
         
-        upBallBtn.frame = CGRect(x: xUpBtn, y: yUpBtn, width: widthBtn, height: heightBtn)
-        upBallBtn.backgroundColor = .gray
-        upBallBtn.layer.cornerRadius = upBallBtn.bounds.height / 2
-        upBallBtn.addTarget(self, action: #selector(moveUp), for: .touchUpInside)
-        upBallBtn.setTitle("UP", for: .normal)
-        
-        view.addSubview(upBallBtn)
-        
-        // Create DOWN button with parameters
-        let xDownBtn = (Int(view.bounds.width) / 2) - (widthBtn / 2)
-        let yDownBtn = Int(view.bounds.height) - (heightBtn * 2)
-        
-        downBallBtn.frame = CGRect(x: xDownBtn, y: yDownBtn, width: widthBtn, height: heightBtn)
-        downBallBtn.backgroundColor = .gray
-        downBallBtn.layer.cornerRadius = downBallBtn.bounds.height / 2
-        downBallBtn.addTarget(self, action: #selector(moveDown), for: .touchUpInside)
-        downBallBtn.setTitle("DOWN", for: .normal)
-        
-        view.addSubview(downBallBtn)
-        
-        // Create LEFT button with parameters
-        let xLeftBtn = (Int(view.bounds.width) / 2) - widthBtn - (widthBtn / 2)
-        let yLeftBtn = Int(view.bounds.height) - (heightBtn * 3)
-        
-        leftBallBtn.frame = CGRect(x: xLeftBtn, y: yLeftBtn, width: widthBtn, height: heightBtn)
-        leftBallBtn.backgroundColor = .gray
-        leftBallBtn.layer.cornerRadius = leftBallBtn.bounds.height / 2
-        leftBallBtn.addTarget(self, action: #selector(moveLeft), for: .touchUpInside)
-        leftBallBtn.setTitle("LEFT", for: .normal)
-        
-        view.addSubview(leftBallBtn)
-        
-        // Create RIGHT button with parameters
-        let xRightBtn = (Int(view.bounds.width) / 2) + widthBtn - (widthBtn / 2)
-        let yRightBtn = Int(view.bounds.height) - (heightBtn * 3)
-        
-        rightBallBtn.frame = CGRect(x: xRightBtn, y: yRightBtn, width: widthBtn, height: heightBtn)
-        rightBallBtn.backgroundColor = .gray
-        rightBallBtn.layer.cornerRadius = rightBallBtn.bounds.height / 2
-        rightBallBtn.addTarget(self, action: #selector(moveRight), for: .touchUpInside)
-        rightBallBtn.setTitle("RIGHT", for: .normal)
-        
-        view.addSubview(rightBallBtn)
+        // Create movement buttons with parameters
+        moveBtn(button: upBallBtn, moveTo: .up)
+        moveBtn(button: downBallBtn, moveTo: .down)
+        moveBtn(button: leftBallBtn, moveTo: .left)
+        moveBtn(button: rightBallBtn, moveTo: .right)
     }
     
     /// Move the ball up
