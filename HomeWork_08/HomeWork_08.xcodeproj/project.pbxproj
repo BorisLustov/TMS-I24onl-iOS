@@ -77,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				A4667669286CFD44001C6C5B /* Helper's */,
-				A4667667286CFB18001C6C5B /* VievController's */,
+				A4667667286CFB18001C6C5B /* ViewController's */,
 				A466765E286CF639001C6C5B /* Storyboard's */,
 				A466763F286CEFAC001C6C5B /* AppDelegate.swift */,
 				A4667641286CEFAC001C6C5B /* SceneDelegate.swift */,
@@ -87,7 +87,7 @@
 			path = HomeWork_08;
 			sourceTree = "<group>";
 		};
-		A466765D286CF612001C6C5B /* FiveStoryboard */ = {
+		A466765D286CF612001C6C5B /* FiveStoryboard's */ = {
 			isa = PBXGroup;
 			children = (
 				A4667657286CF542001C6C5B /* ViewControllerFiveStrb.swift */,
@@ -96,7 +96,7 @@
 				A4667663286CFAFE001C6C5B /* ViewControllerFiveStrb4.swift */,
 				A4667665286CFB0A001C6C5B /* ViewControllerFiveStrb5.swift */,
 			);
-			path = FiveStoryboard;
+			path = "FiveStoryboard's";
 			sourceTree = "<group>";
 		};
 		A466765E286CF639001C6C5B /* Storyboard's */ = {
@@ -110,14 +110,14 @@
 			path = "Storyboard's";
 			sourceTree = "<group>";
 		};
-		A4667667286CFB18001C6C5B /* VievController's */ = {
+		A4667667286CFB18001C6C5B /* ViewController's */ = {
 			isa = PBXGroup;
 			children = (
-				A466765D286CF612001C6C5B /* FiveStoryboard */,
+				A466765D286CF612001C6C5B /* FiveStoryboard's */,
 				A4667668286CFB5F001C6C5B /* CustomClass */,
 				A4667643286CEFAC001C6C5B /* ViewControllerMain.swift */,
 			);
-			path = "VievController's";
+			path = "ViewController's";
 			sourceTree = "<group>";
 		};
 		A4667668286CFB5F001C6C5B /* CustomClass */ = {
