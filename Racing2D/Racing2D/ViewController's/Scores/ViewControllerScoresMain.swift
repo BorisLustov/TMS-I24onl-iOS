@@ -12,7 +12,7 @@ class ViewControllerScoresMain: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .purple
+        view.backgroundColor = .yellow
     }
 
     @IBAction func close(_ sender: Any) {

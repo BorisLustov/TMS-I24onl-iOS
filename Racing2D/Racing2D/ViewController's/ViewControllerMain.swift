@@ -7,7 +7,30 @@
 
 import UIKit
 
+enum WhichViewController {
+    case gameMain
+    case scoresMain
+    case settingsMain
+}
+
 class ViewControllerMain: UIViewController {
+    
+    /// Switching to the storyboard by parameters
+    func goToStoryboard(uIStrb: String, viewCntrlID: String, uIViewCntrl: WhichViewController) {
+        let storyboard = UIStoryboard(name: uIStrb, bundle: nil)
+        var viewController = UIViewController()
+        switch uIViewCntrl {
+        case .gameMain:
+             viewController = storyboard.instantiateViewController(withIdentifier: viewCntrlID) as! ViewControllerGameMain
+        case .scoresMain:
+            viewController = storyboard.instantiateViewController(withIdentifier: viewCntrlID) as! ViewControllerScoresMain
+        case .settingsMain:
+            viewController = storyboard.instantiateViewController(withIdentifier: viewCntrlID) as! ViewControllerSettingsMain
+        }
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        present(viewController, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,33 +39,15 @@ class ViewControllerMain: UIViewController {
     }
     
     @IBAction func goToGameMain(_ sender: Any) {
-        let gameMainStoryboard = UIStoryboard(name: "Game", bundle: nil)
-        let viewControllerGameMain = gameMainStoryboard.instantiateViewController(withIdentifier: "GameMainID") as! ViewControllerGameMain
-        
-        viewControllerGameMain.modalPresentationStyle = .fullScreen
-        viewControllerGameMain.modalTransitionStyle = .crossDissolve
-        
-        present(viewControllerGameMain, animated: true)
+        goToStoryboard(uIStrb: "Game", viewCntrlID: "GameMainID", uIViewCntrl: .gameMain)
     }
     
     @IBAction func goToScoresMain(_ sender: Any) {
-        let scoresMainStoryboard = UIStoryboard(name: "Scores", bundle: nil)
-        let viewControllerScoresMain = scoresMainStoryboard.instantiateViewController(withIdentifier: "ScoresMainID") as! ViewControllerScoresMain
-        
-        viewControllerScoresMain.modalPresentationStyle = .fullScreen
-        viewControllerScoresMain.modalTransitionStyle = .crossDissolve
-        
-        present(viewControllerScoresMain, animated: true)
+        goToStoryboard(uIStrb: "Scores", viewCntrlID: "ScoresMainID", uIViewCntrl: .scoresMain)
     }
     
     @IBAction func goToSettingsMain(_ sender: Any) {
-        let settingsMainStoryboard = UIStoryboard(name: "Settings", bundle: nil)
-        let viewControllerSettingsMain = settingsMainStoryboard.instantiateViewController(withIdentifier: "SettingsMainID") as! ViewControllerSettingsMain
-        
-        viewControllerSettingsMain.modalPresentationStyle = .fullScreen
-        viewControllerSettingsMain.modalTransitionStyle = .crossDissolve
-        
-        present(viewControllerSettingsMain, animated: true)
+        goToStoryboard(uIStrb: "Settings", viewCntrlID: "SettingsMainID", uIViewCntrl: .settingsMain)
     }
     
 }

@@ -28,7 +28,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goToScoresMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k7i-Tn-sZ9"/>
+                                    <action selector="goToScoresMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Upc-2v-zAc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0e-m0-oYX">
@@ -43,7 +43,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goToGameMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZQ-CU-FTU"/>
+                                    <action selector="goToGameMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMc-BX-BAe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v14-Ht-6xc">
@@ -58,7 +58,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goToSettingsMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lB9-8c-Ypu"/>
+                                    <action selector="goToSettingsMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PWs-Nu-cGS"/>
                                 </connections>
                             </button>
                         </subviews>
