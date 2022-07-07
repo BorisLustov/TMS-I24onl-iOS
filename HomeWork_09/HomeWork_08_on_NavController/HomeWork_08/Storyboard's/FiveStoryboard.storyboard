@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller Five Strb-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="FiveStoryboardID" id="Y6W-OH-hqX" customClass="ViewControllerFiveStrb" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmT-d5-sbc">
+                                <rect key="frame" x="158.5" y="432.5" width="97" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="to 2 screen">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toSecondScreen" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Dkz-NM-wxT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zmT-d5-sbc" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QNk-md-lBW"/>
+                            <constraint firstItem="zmT-d5-sbc" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="iKW-UQ-04j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gx3-jm-or7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="78.348214285714278"/>
+        </scene>
+        <!--View Controller Five Strb2-->
+        <scene sceneID="8hZ-cw-dgn">
+            <objects>
+                <viewController storyboardIdentifier="FiveStrbSecondScreenID" id="9HB-ke-jWo" customClass="ViewControllerFiveStrb2" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UMF-Mu-Qkv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vs-ur-0bF">
+                                <rect key="frame" x="158.5" y="432.5" width="97" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="to 3 screen">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toThirdScreen" destination="9HB-ke-jWo" eventType="touchUpInside" id="Y0T-h9-xAk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="w17-Kd-dPE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Vs-ur-0bF" firstAttribute="centerY" secondItem="UMF-Mu-Qkv" secondAttribute="centerY" id="IiR-eU-Fbx"/>
+                            <constraint firstItem="8Vs-ur-0bF" firstAttribute="centerX" secondItem="UMF-Mu-Qkv" secondAttribute="centerX" id="Nq5-3X-eAQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HL9-80-XmO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rV-QZ-rnL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1771.0144927536232" y="77.678571428571431"/>
+        </scene>
+        <!--View Controller Five Strb3-->
+        <scene sceneID="QeO-Ij-kyl">
+            <objects>
+                <viewController storyboardIdentifier="FiveStrbThirdScreenID" id="Fc3-24-GiJ" customClass="ViewControllerFiveStrb3" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hww-QS-Qjm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXI-VY-wAm">
+                                <rect key="frame" x="158.5" y="432.5" width="97" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="to 4 screen">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toFourScreen" destination="Fc3-24-GiJ" eventType="touchUpInside" id="QiE-jy-QKo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zkj-iw-7Jp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xXI-VY-wAm" firstAttribute="centerX" secondItem="hww-QS-Qjm" secondAttribute="centerX" id="Rj8-Mf-mJd"/>
+                            <constraint firstItem="xXI-VY-wAm" firstAttribute="centerY" secondItem="hww-QS-Qjm" secondAttribute="centerY" id="U1K-To-xHE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1WU-k7-kY0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlB-eq-uMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2518.840579710145" y="77.678571428571431"/>
+        </scene>
+        <!--View Controller Five Strb4-->
+        <scene sceneID="Yj6-Hs-UzF">
+            <objects>
+                <viewController storyboardIdentifier="FiveStrbFourScreenID" id="9hI-7R-fjO" customClass="ViewControllerFiveStrb4" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OwY-He-4Mr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXc-u1-j4A">
+                                <rect key="frame" x="158.5" y="432.5" width="97" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="to 5 screen">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toFiveScreen" destination="9hI-7R-fjO" eventType="touchUpInside" id="Trw-7b-g26"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mkD-Y8-dh8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lXc-u1-j4A" firstAttribute="centerX" secondItem="OwY-He-4Mr" secondAttribute="centerX" id="h1N-IH-aMb"/>
+                            <constraint firstItem="lXc-u1-j4A" firstAttribute="centerY" secondItem="OwY-He-4Mr" secondAttribute="centerY" id="hfN-Fn-w3c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lSC-gM-WGS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p2c-H6-Zi9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3286.9565217391305" y="77.678571428571431"/>
+        </scene>
+        <!--View Controller Five Strb5-->
+        <scene sceneID="kVF-yf-hh7">
+            <objects>
+                <viewController storyboardIdentifier="FiveStrbFiveScreenID" id="Gq2-xV-xrE" customClass="ViewControllerFiveStrb5" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M2E-fM-KU1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lJ-GE-ORe">
+                                <rect key="frame" x="181" y="435" width="52" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jMV-BM-jJl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1lJ-GE-ORe" firstAttribute="centerY" secondItem="M2E-fM-KU1" secondAttribute="centerY" id="Uzm-rg-X4W"/>
+                            <constraint firstItem="1lJ-GE-ORe" firstAttribute="centerX" secondItem="M2E-fM-KU1" secondAttribute="centerX" id="ujo-Cf-RVK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZzQ-tG-fen"/>
+                    <connections>
+                        <outlet property="textLable" destination="1lJ-GE-ORe" id="okk-O1-UAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDx-Od-EuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4057.971014492754" y="77.678571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2s1-h9-r0k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cec-E3-j8n" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wZf-L4-twT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="UDu-RB-dWi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gsQ-sc-7kB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

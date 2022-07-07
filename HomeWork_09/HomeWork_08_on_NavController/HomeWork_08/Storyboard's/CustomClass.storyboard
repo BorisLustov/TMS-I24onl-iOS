@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller Cstm Class-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CustomClassID" id="Y6W-OH-hqX" customClass="ViewControllerCstmClass" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTc-Oi-zc7">
+                                <rect key="frame" x="139" y="432.5" width="136" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="to second screen">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toSecondScreenCstmClass:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="o0T-pb-DSM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aTc-Oi-zc7" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="U6j-Zz-5wt"/>
+                            <constraint firstItem="aTc-Oi-zc7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="VHq-06-cZK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IH6-bx-pJM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.10144927536237" y="78.348214285714278"/>
+        </scene>
+        <!--View Controller Cstm Class2-->
+        <scene sceneID="RdO-Yg-6Gn">
+            <objects>
+                <viewController storyboardIdentifier="CstmClassSecondScreenID" id="6yW-Sg-9KN" customClass="ViewControllerCstmClass2" customModule="HomeWork_08" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Id4-YT-2HS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarModel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-94-1Cu">
+                                <rect key="frame" x="170" y="437.5" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarBrand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-rd-K3d">
+                                <rect key="frame" x="171" y="374" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FuelType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4k-yL-wjA">
+                                <rect key="frame" x="172" y="505" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lkJ-6e-09S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Bg-94-1Cu" firstAttribute="centerY" secondItem="Id4-YT-2HS" secondAttribute="centerY" id="OXV-KZ-O2h"/>
+                            <constraint firstItem="K4k-yL-wjA" firstAttribute="centerX" secondItem="Id4-YT-2HS" secondAttribute="centerX" id="ZU2-go-k2O"/>
+                            <constraint firstItem="DXO-rd-K3d" firstAttribute="centerX" secondItem="Id4-YT-2HS" secondAttribute="centerX" id="cxg-bh-zbV"/>
+                            <constraint firstItem="8Bg-94-1Cu" firstAttribute="centerX" secondItem="Id4-YT-2HS" secondAttribute="centerX" id="fJg-5O-b8F"/>
+                            <constraint firstItem="8Bg-94-1Cu" firstAttribute="top" secondItem="DXO-rd-K3d" secondAttribute="bottom" constant="42.5" id="xjc-ai-J6y"/>
+                            <constraint firstItem="K4k-yL-wjA" firstAttribute="top" secondItem="8Bg-94-1Cu" secondAttribute="bottom" constant="46.5" id="yog-95-J76"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carBrandLbl" destination="DXO-rd-K3d" id="I0f-wJ-vMI"/>
+                        <outlet property="carModelLbl" destination="8Bg-94-1Cu" id="TdD-kT-mT1"/>
+                        <outlet property="fuelTypeLbl" destination="K4k-yL-wjA" id="ahL-bz-8vG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZl-CT-5Cc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805.7971014492755" y="77.678571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sLC-tD-e9k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZNY-v2-xK0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fpN-jv-0XV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="VHI-Yt-FEK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Es0-J7-yl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
