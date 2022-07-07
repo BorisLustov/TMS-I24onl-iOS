@@ -28,6 +28,7 @@ class ViewControllerMoveCircle: UIViewController {
         super.viewDidAppear(animated)
         
         // Create circle with parameters
+        
         xCircle = (Int(view.bounds.width) / 2) - (widthCircle / 2)
         yCircle = (Int(view.bounds.height) / 2) - (heightCircle / 2)
         
@@ -38,7 +39,21 @@ class ViewControllerMoveCircle: UIViewController {
         
         view.addSubview(circle)
         
+        // Setting gesture
+        
+        let swypeGesture = UIPanGestureRecognizer(target: self, action: #selector(moveCircle))
+        circle.addGestureRecognizer(swypeGesture)
+        
     }
 
+    /// Ьoving the circle by swipe
+    @objc func moveCircle(_ gestureRecognizer: UIPanGestureRecognizer) {
+        if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
 
+            let translation = gestureRecognizer.translation(in: self.view)
+            gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x + translation.x, y: gestureRecognizer.view!.center.y + translation.y)
+            gestureRecognizer.setTranslation(CGPoint.zero, in: self.view)
+        }
+    }
+    
 }

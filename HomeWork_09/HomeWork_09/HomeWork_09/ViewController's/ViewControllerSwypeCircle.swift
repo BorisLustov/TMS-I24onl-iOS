@@ -32,6 +32,7 @@ class ViewControllerSwypeCircle: UIViewController {
         super.viewDidAppear(animated)
 
         // Create circle with parameters
+        
         xCircle = (Int(view.bounds.width) / 2) - (widthCircle / 2)
         yCircle = (Int(view.bounds.height) / 2) - (heightCircle / 2)
         
@@ -41,6 +42,8 @@ class ViewControllerSwypeCircle: UIViewController {
         circle.layer.cornerRadius = circle.bounds.height / 2
         
         view.addSubview(circle)
+        
+        // Setting gestures
         
         let swypeCircleUp = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleUp))
         swypeCircleUp.direction = .up
