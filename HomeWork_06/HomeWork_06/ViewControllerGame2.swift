@@ -51,7 +51,7 @@ class ViewControllerGame2: UIViewController {
         let widthSquare = Int(view.bounds.width) / columnsCount
         let heightSquare = widthSquare
         
-        let rowsCount = Int((Int(view.bounds.height) - heightBtn) / heightSquare)
+        let rowsCount = Int((Int(view.bounds.height) - (heightBtn * 2)) / heightSquare)
         
         var xSquare = 0
         var ySquare = 0
