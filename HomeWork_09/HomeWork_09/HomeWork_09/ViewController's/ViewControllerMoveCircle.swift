@@ -41,18 +41,18 @@ class ViewControllerMoveCircle: UIViewController {
         
         // Setting gesture
         
-        let swypeGesture = UIPanGestureRecognizer(target: self, action: #selector(moveCircle))
-        circle.addGestureRecognizer(swypeGesture)
+        let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(moveCircle))
+        circle.addGestureRecognizer(swipeGesture)
         
     }
 
-    /// Ьoving the circle by swipe
-    @objc func moveCircle(_ gestureRecognizer: UIPanGestureRecognizer) {
-        if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
+    /// Moving the circle by swipe
+    @objc func moveCircle(_ sender: UIPanGestureRecognizer) {
+        if sender.state == .began || sender.state == .changed {
 
-            let translation = gestureRecognizer.translation(in: self.view)
-            gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x + translation.x, y: gestureRecognizer.view!.center.y + translation.y)
-            gestureRecognizer.setTranslation(CGPoint.zero, in: self.view)
+            let translation = sender.translation(in: self.view)
+            sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
+            sender.setTranslation(CGPoint.zero, in: self.view)
         }
     }
     
