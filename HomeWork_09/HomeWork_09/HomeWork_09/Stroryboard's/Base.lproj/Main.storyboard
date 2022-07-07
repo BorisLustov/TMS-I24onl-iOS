@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NwC-Tl-U0t">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller Main-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewControllerMain" customModule="HomeWork_09" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziK-7u-S5A">
+                                <rect key="frame" x="120" y="427" width="174" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="2Q6-Lv-MeK"/>
+                                    <constraint firstAttribute="height" constant="42" id="nNn-Sy-KPU"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Swype Circle">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showSwypeCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMB-Fp-jNZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-aj-YR3">
+                                <rect key="frame" x="120" y="364" width="174" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="MaU-ZP-mNi"/>
+                                    <constraint firstAttribute="height" constant="42" id="fEf-l1-UHk"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Random Circles">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showRandomCircles" destination="BYZ-38-t0r" eventType="touchUpInside" id="TvS-78-Qtd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-5j-48b">
+                                <rect key="frame" x="120" y="490" width="174" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="7ha-7L-8jk"/>
+                                    <constraint firstAttribute="width" constant="174" id="T9t-Is-cWG"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Move Circle">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showMoveCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sru-eK-ocO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dhH-aj-YR3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1E7-om-ghi"/>
+                            <constraint firstItem="fz8-5j-48b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="g2a-wd-BgC"/>
+                            <constraint firstItem="fz8-5j-48b" firstAttribute="top" secondItem="ziK-7u-S5A" secondAttribute="bottom" constant="21" id="n73-tq-vPm"/>
+                            <constraint firstItem="ziK-7u-S5A" firstAttribute="top" secondItem="dhH-aj-YR3" secondAttribute="bottom" constant="21" id="nDa-gP-Yii"/>
+                            <constraint firstItem="ziK-7u-S5A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xso-ca-cTY"/>
+                            <constraint firstItem="ziK-7u-S5A" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yZ5-O0-4Sn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BEa-Gs-ULz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000.0000000000001" y="97.767857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qae-HB-R0t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NwC-Tl-U0t" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BpC-7K-JqJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Bw8-Wf-dkH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1e9-On-GBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
