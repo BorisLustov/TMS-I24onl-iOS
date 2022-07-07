@@ -9,15 +9,15 @@ import UIKit
 
 class ViewControllerSwypeCircle: UIViewController {
     
-    let ball = UIView()
+    let circle = UIView()
     
-    // Coordinates and parameters of ball
-    var xBall = 0
-    var yBall = 0
-    let widthBall = 100
-    let heightBall = 100
+    // Coordinates and parameters of circle
+    var xCircle = 0
+    var yCircle = 0
+    let widthCircle = 100
+    let heightCircle = 100
     
-    // Ball movement step
+    // Circle movement step
     let step = 25
 
     override func viewDidLoad() {
@@ -31,65 +31,65 @@ class ViewControllerSwypeCircle: UIViewController {
         
         super.viewDidAppear(animated)
 
-        // Create ball with parameters
-        xBall = (Int(view.bounds.width) / 2) - (widthBall / 2)
-        yBall = (Int(view.bounds.height) / 2) - (heightBall / 2)
+        // Create circle with parameters
+        xCircle = (Int(view.bounds.width) / 2) - (widthCircle / 2)
+        yCircle = (Int(view.bounds.height) / 2) - (heightCircle / 2)
         
-        ball.frame = CGRect(x: xBall, y: yBall, width: widthBall, height: heightBall)
-        ball.backgroundColor = .randomColor()
-        ball.clipsToBounds = true
-        ball.layer.cornerRadius = ball.bounds.height / 2
+        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
+        circle.backgroundColor = .randomColor()
+        circle.clipsToBounds = true
+        circle.layer.cornerRadius = circle.bounds.height / 2
         
-        view.addSubview(ball)
+        view.addSubview(circle)
         
-        let swypeBallUp = UISwipeGestureRecognizer(target: self, action: #selector(moveBallUp))
-        swypeBallUp.direction = .up
-        view.addGestureRecognizer(swypeBallUp)
+        let swypeCircleUp = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleUp))
+        swypeCircleUp.direction = .up
+        view.addGestureRecognizer(swypeCircleUp)
         
-        let swypeBallDown = UISwipeGestureRecognizer(target: self, action: #selector(moveBallDown))
-        swypeBallDown.direction = .down
-        view.addGestureRecognizer(swypeBallDown)
+        let swypeCircleDown = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleDown))
+        swypeCircleDown.direction = .down
+        view.addGestureRecognizer(swypeCircleDown)
         
-        let swypeBallLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveBallLeft))
-        swypeBallLeft.direction = .left
-        view.addGestureRecognizer(swypeBallLeft)
+        let swypeCircleLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleLeft))
+        swypeCircleLeft.direction = .left
+        view.addGestureRecognizer(swypeCircleLeft)
         
-        let swypeBallRight = UISwipeGestureRecognizer(target: self, action: #selector(moveBallRight))
-        swypeBallRight.direction = .right
-        view.addGestureRecognizer(swypeBallRight)
+        let swypeCircleRight = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleRight))
+        swypeCircleRight.direction = .right
+        view.addGestureRecognizer(swypeCircleRight)
 
     }
 
-    /// Move the ball up
-    @objc func moveBallUp() {
-        if yBall > (Int(view.frame.minY) + step) {
-            yBall -= step
+    /// Move the circle up
+    @objc func moveCircleUp() {
+        if yCircle > (Int(view.frame.minY) + step) {
+            yCircle -= step
         }
-        ball.frame = CGRect(x: xBall, y: yBall, width: widthBall, height: heightBall)
+        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
     }
     
-    /// Move the ball down
-    @objc func moveBallDown() {
-        if yBall < ((Int(view.frame.maxY) - heightBall) - step)  {
-            yBall += step
+    /// Move the circle down
+    @objc func moveCircleDown() {
+        if yCircle < ((Int(view.frame.maxY) - heightCircle) - step)  {
+            yCircle += step
         }
-        ball.frame = CGRect(x: xBall, y: yBall, width: widthBall, height: heightBall)
+        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
     }
     
-    /// Move the ball left
-    @objc func moveBallLeft() {
-        if xBall > (Int(view.frame.minX) + step)  {
-            xBall -= step
+    /// Move the circle left
+    @objc func moveCircleLeft() {
+        if xCircle > (Int(view.frame.minX) + step)  {
+            xCircle -= step
         }
-        ball.frame = CGRect(x: xBall, y: yBall, width: widthBall, height: heightBall)
+        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
     }
     
-    /// Move the ball right
-    @objc func moveBallRight() {
-        if xBall < ((Int(view.frame.maxX) - heightBall) - step)  {
-            xBall += step
+    /// Move the circle right
+    @objc func moveCircleRight() {
+        if xCircle < ((Int(view.frame.maxX) - heightCircle) - step)  {
+            xCircle += step
         }
-        ball.frame = CGRect(x: xBall, y: yBall, width: widthBall, height: heightBall)
+        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
     }
     
 }
