@@ -16,61 +16,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziK-7u-S5A">
-                                <rect key="frame" x="120" y="427" width="174" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="2Q6-Lv-MeK"/>
-                                    <constraint firstAttribute="height" constant="42" id="nNn-Sy-KPU"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Swype Circle">
-                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="showSwypeCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMB-Fp-jNZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-aj-YR3">
-                                <rect key="frame" x="120" y="364" width="174" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="MaU-ZP-mNi"/>
-                                    <constraint firstAttribute="height" constant="42" id="fEf-l1-UHk"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Random Circles">
-                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="showRandomCircles" destination="BYZ-38-t0r" eventType="touchUpInside" id="TvS-78-Qtd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-5j-48b">
-                                <rect key="frame" x="120" y="490" width="174" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="7ha-7L-8jk"/>
-                                    <constraint firstAttribute="width" constant="174" id="T9t-Is-cWG"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Move Circle">
-                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="showMoveCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sru-eK-ocO"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-Dp-SoJ">
+                                <rect key="frame" x="120" y="345" width="174" height="206"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-aj-YR3">
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="174" id="MaU-ZP-mNi"/>
+                                            <constraint firstAttribute="height" constant="42" id="fEf-l1-UHk"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Random Circles">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showRandomCircles" destination="BYZ-38-t0r" eventType="touchUpInside" id="TvS-78-Qtd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-5j-48b">
+                                        <rect key="frame" x="0.0" y="82" width="174" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="7ha-7L-8jk"/>
+                                            <constraint firstAttribute="width" constant="174" id="T9t-Is-cWG"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Move Circle">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showMoveCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sru-eK-ocO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziK-7u-S5A">
+                                        <rect key="frame" x="0.0" y="164" width="174" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="174" id="2Q6-Lv-MeK"/>
+                                            <constraint firstAttribute="height" constant="42" id="nNn-Sy-KPU"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Swype Circle">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showSwypeCircle" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMB-Fp-jNZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dhH-aj-YR3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1E7-om-ghi"/>
-                            <constraint firstItem="fz8-5j-48b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="g2a-wd-BgC"/>
-                            <constraint firstItem="fz8-5j-48b" firstAttribute="top" secondItem="ziK-7u-S5A" secondAttribute="bottom" constant="21" id="n73-tq-vPm"/>
-                            <constraint firstItem="ziK-7u-S5A" firstAttribute="top" secondItem="dhH-aj-YR3" secondAttribute="bottom" constant="21" id="nDa-gP-Yii"/>
-                            <constraint firstItem="ziK-7u-S5A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xso-ca-cTY"/>
-                            <constraint firstItem="ziK-7u-S5A" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yZ5-O0-4Sn"/>
+                            <constraint firstItem="BNn-Dp-SoJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cdf-iS-kdN"/>
+                            <constraint firstItem="BNn-Dp-SoJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hft-bq-Z7E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BEa-Gs-ULz"/>
