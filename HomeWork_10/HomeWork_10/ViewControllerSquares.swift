@@ -16,16 +16,25 @@ enum Squares {
 
 class ViewControllerSquares: UIViewController {
     
+    // MARK: - UIView
+    
     let squaresView = UIView()
     let square1 = UIView()
     let square2 = UIView()
     let square3 = UIView()
     let square4 = UIView()
     
+    // MARK: - UIButton
+    
     let hideSquaresBtn = UIButton()
     
+    // MARK: - Variables
+    
+    // Height and width of squares
     var squareHeight: NSLayoutConstraint?
     var squareWidth: NSLayoutConstraint?
+    
+    // MARK: View Lyfecycle Func
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +44,8 @@ class ViewControllerSquares: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // Add view for four squares view
         
         squaresView.backgroundColor = view.backgroundColor
         squaresView.frame = CGRect(x: view.frame.minX, y: view.center.y / 2, width: view.bounds.width, height: view.bounds.width)
@@ -59,10 +70,10 @@ class ViewControllerSquares: UIViewController {
         squaresView.addSubview(square3)
         squaresView.addSubview(square4)
         
-        setupLayautSquare(square: square1)
-        setupLayautSquare(square: square2)
-        setupLayautSquare(square: square3)
-        setupLayautSquare(square: square4)
+        setupSizeOfSquare(square: square1)
+        setupSizeOfSquare(square: square2)
+        setupSizeOfSquare(square: square3)
+        setupSizeOfSquare(square: square4)
         
         constraintsSquare1()
         constraintsSquare2()
@@ -78,6 +89,9 @@ class ViewControllerSquares: UIViewController {
         
     }
     
+    // MARK: - Swipe Gesture
+    
+    /// Adding gestures to Squares with parameters
     func swipeGesture(view: UIView, numOfSquare: Squares) {
         
         let swipeSquareLeft = UISwipeGestureRecognizer()
@@ -105,7 +119,10 @@ class ViewControllerSquares: UIViewController {
         view.addGestureRecognizer(swipeSquareRight)
     }
     
-    func setupLayautSquare(square: UIView) {
+    // MARK: - Layout and Constraints
+    
+    /// Setting the size of squares with layout
+    func setupSizeOfSquare(square: UIView) {
         
         //        squareHeight = square.heightAnchor.constraint(equalToConstant: squaresView.bounds.height * 0.45)
         //
@@ -138,42 +155,56 @@ class ViewControllerSquares: UIViewController {
         //        squareWidth?.isActive = true
     }
     
+    /// Constraints of first square
     func constraintsSquare1() {
+        
         let constraints = [
             square1.topAnchor.constraint(equalTo: squaresView.topAnchor, constant: 10),
             square1.leadingAnchor.constraint(equalTo: squaresView.leadingAnchor, constant: 10),
             square1.trailingAnchor.constraint(equalTo: square2.leadingAnchor, constant: -20),
             square1.bottomAnchor.constraint(equalTo: square3.topAnchor, constant: -20)
         ]
+        
         NSLayoutConstraint.activate(constraints)
     }
     
+    /// Constraints of second square
     func constraintsSquare2() {
+        
         let constraints = [
             square2.leadingAnchor.constraint(equalTo: square1.trailingAnchor, constant: 20),
             square2.bottomAnchor.constraint(equalTo: square1.bottomAnchor, constant: 0)
         ]
+        
         NSLayoutConstraint.activate(constraints)
     }
     
+    /// Constraints of third square
     func constraintsSquare3() {
+        
         let constraints = [
             square3.topAnchor.constraint(equalTo: square1.bottomAnchor, constant: -20),
             square3.leadingAnchor.constraint(equalTo: square1.leadingAnchor, constant: 0),
             square3.trailingAnchor.constraint(equalTo: square4.leadingAnchor, constant: -20)
         ]
+        
         NSLayoutConstraint.activate(constraints)
     }
     
+    /// Constraints of four square
     func constraintsSquare4() {
+        
         let constraints = [
             square4.topAnchor.constraint(equalTo: square3.topAnchor, constant: 0),
             square4.leadingAnchor.constraint(equalTo: square3.trailingAnchor, constant: 20)
         ]
-        constraints[0].priority = UILayoutPriority(999)
+        
+//        constraints[0].priority = UILayoutPriority(999)
+        
         NSLayoutConstraint.activate(constraints)
     }
     
+    /// Hide squares button with parameters
     func setupHideButton() {
         
         let widthBtn = 150
@@ -189,6 +220,7 @@ class ViewControllerSquares: UIViewController {
         hideSquaresBtn.addTarget(self, action: #selector(hideSquares), for: .touchUpInside)
     }
     
+    /// Changing the size of a square
     func transformSquare(square: UIView, multy: CGFloat) {
         
         let height = NSLayoutConstraint(
@@ -224,6 +256,8 @@ class ViewControllerSquares: UIViewController {
     //
     //        self.view.layoutIfNeeded()
     //    }
+    
+    // MARK: - Selectors
     
     @objc
     func hideSquares() {
