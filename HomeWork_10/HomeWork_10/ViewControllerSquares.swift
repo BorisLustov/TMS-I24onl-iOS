@@ -7,8 +7,15 @@
 
 import UIKit
 
-class ViewControllerSquares: UIViewController {
+enum Squares {
+    case first
+    case second
+    case third
+    case four
+}
 
+class ViewControllerSquares: UIViewController {
+    
     let squaresView = UIView()
     let square1 = UIView()
     let square2 = UIView()
@@ -19,13 +26,11 @@ class ViewControllerSquares: UIViewController {
     
     var squareHeight: NSLayoutConstraint?
     var squareWidth: NSLayoutConstraint?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .randomColor()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +58,7 @@ class ViewControllerSquares: UIViewController {
         squaresView.addSubview(square2)
         squaresView.addSubview(square3)
         squaresView.addSubview(square4)
-
+        
         setupLayautSquare(square: square1)
         setupLayautSquare(square: square2)
         setupLayautSquare(square: square3)
@@ -64,20 +69,47 @@ class ViewControllerSquares: UIViewController {
         constraintsSquare3()
         constraintsSquare4()
         
+        swipeGesture(view: square1, numOfSquare: .first)
+        swipeGesture(view: square2, numOfSquare: .second)
+        swipeGesture(view: square3, numOfSquare: .third)
+        swipeGesture(view: square4, numOfSquare: .four)
+        
         setupHideButton()
         
-//        setBigger(square: square1)
-        
-//        transform(view: square1)
-        
     }
     
+    func swipeGesture(view: UIView, numOfSquare: Squares) {
+        
+        let swipeSquareLeft = UISwipeGestureRecognizer()
+        let swipeSquareRight = UISwipeGestureRecognizer()
+        
+        switch numOfSquare {
+        case .first:
+            swipeSquareLeft.addTarget(self, action: #selector(makeSquare1Smaller))
+            swipeSquareRight.addTarget(self, action: #selector(makeSquare1Bigger))
+        case .second:
+            swipeSquareLeft.addTarget(self, action: #selector(makeSquare2Smaller))
+            swipeSquareRight.addTarget(self, action: #selector(makeSquare2Bigger))
+        case .third:
+            swipeSquareLeft.addTarget(self, action: #selector(makeSquare3Smaller))
+            swipeSquareRight.addTarget(self, action: #selector(makeSquare3Bigger))
+        case .four:
+            swipeSquareLeft.addTarget(self, action: #selector(makeSquare4Smaller))
+            swipeSquareRight.addTarget(self, action: #selector(makeSquare4Bigger))
+        }
 
+        swipeSquareLeft.direction = .left
+        view.addGestureRecognizer(swipeSquareLeft)
+        
+        swipeSquareRight.direction = .right
+        view.addGestureRecognizer(swipeSquareRight)
+    }
+    
     func setupLayautSquare(square: UIView) {
-
-//        squareHeight = square.heightAnchor.constraint(equalToConstant: squaresView.bounds.height * 0.45)
-//
-//        squareWidth = square.widthAnchor.constraint(equalToConstant: squaresView.bounds.width * 0.45)
+        
+        //        squareHeight = square.heightAnchor.constraint(equalToConstant: squaresView.bounds.height * 0.45)
+        //
+        //        squareWidth = square.widthAnchor.constraint(equalToConstant: squaresView.bounds.width * 0.45)
         
         let height = NSLayoutConstraint(
             item: square,
@@ -88,7 +120,7 @@ class ViewControllerSquares: UIViewController {
             multiplier: 0.45,
             constant: 0
         )
-
+        
         let width = NSLayoutConstraint(
             item: square,
             attribute: .width,
@@ -102,46 +134,9 @@ class ViewControllerSquares: UIViewController {
         height.isActive = true
         width.isActive = true
         
-//        squareHeight?.isActive = true
-//        squareWidth?.isActive = true
+        //        squareHeight?.isActive = true
+        //        squareWidth?.isActive = true
     }
-    
-//    func transform(view: UIView) {
-//        self.squareHeight?.constant = squaresView.bounds.height * 0.6
-//        self.squareWidth?.constant = squaresView.bounds.width * 0.6
-//
-//        view.heightAnchor.constraint(equalToConstant: squareHeight!.constant).isActive = true
-//        view.widthAnchor.constraint(equalToConstant: squareWidth!.constant).isActive = true
-//
-//        self.view.layoutIfNeeded()
-//    }
-    
-    func setBigger(square: UIView) {
-        
-        let height = NSLayoutConstraint(
-            item: square,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: squaresView,
-            attribute: .height,
-            multiplier: 0.6,
-            constant: 0
-        )
-
-        let width = NSLayoutConstraint(
-            item: square,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: squaresView,
-            attribute: .width,
-            multiplier: 0.6,
-            constant: 0
-        )
-        
-        height.isActive = true
-        width.isActive = true
-    }
-    
     
     func constraintsSquare1() {
         let constraints = [
@@ -194,6 +189,42 @@ class ViewControllerSquares: UIViewController {
         hideSquaresBtn.addTarget(self, action: #selector(hideSquares), for: .touchUpInside)
     }
     
+    func transformSquare(square: UIView, multy: CGFloat) {
+        
+        let height = NSLayoutConstraint(
+            item: square,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: squaresView,
+            attribute: .height,
+            multiplier: multy,
+            constant: 0
+        )
+        
+        let width = NSLayoutConstraint(
+            item: square,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: squaresView,
+            attribute: .width,
+            multiplier: multy,
+            constant: 0
+        )
+        
+        height.isActive = true
+        width.isActive = true
+    }
+    
+    //    func transform(view: UIView) {
+    //        self.squareHeight?.constant = squaresView.bounds.height * 0.6
+    //        self.squareWidth?.constant = squaresView.bounds.width * 0.6
+    //
+    //        view.heightAnchor.constraint(equalToConstant: squareHeight!.constant).isActive = true
+    //        view.widthAnchor.constraint(equalToConstant: squareWidth!.constant).isActive = true
+    //
+    //        self.view.layoutIfNeeded()
+    //    }
+    
     @objc
     func hideSquares() {
         if squaresView.isHidden == false {
@@ -203,5 +234,44 @@ class ViewControllerSquares: UIViewController {
         }
     }
     
+    @objc
+    func makeSquare1Smaller() {
+        transformSquare(square: square1, multy: 0.3)
+    }
+    
+    @objc
+    func makeSquare1Bigger() {
+        transformSquare(square: square1, multy: 0.6)
+    }
+    
+    @objc
+    func makeSquare2Smaller() {
+        transformSquare(square: square2, multy: 0.3)
+    }
+    
+    @objc
+    func makeSquare2Bigger() {
+        transformSquare(square: square2, multy: 0.6)
+    }
+    
+    @objc
+    func makeSquare3Smaller() {
+        transformSquare(square: square3, multy: 0.3)
+    }
+    
+    @objc
+    func makeSquare3Bigger() {
+        transformSquare(square: square3, multy: 0.6)
+    }
+    
+    @objc
+    func makeSquare4Smaller() {
+        transformSquare(square: square4, multy: 0.3)
+    }
+    
+    @objc
+    func makeSquare4Bigger() {
+        transformSquare(square: square4, multy: 0.6)
+    }
     
 }
