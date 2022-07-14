@@ -12,7 +12,6 @@ class ViewControllerGallery: UIViewController {
     // MARK: - UIImageViews
     
     let imageView = UIImageView()
-    let imageArray = [UIImage]()
     
     // MARK: - Constants
     
@@ -21,6 +20,7 @@ class ViewControllerGallery: UIViewController {
     // MARK: - Variables
     
     var currentPic = 0
+    var imageArray = [UIImage]()
     
     // MARK: - View Lyfecycle
     
@@ -35,6 +35,16 @@ class ViewControllerGallery: UIViewController {
         imageView.backgroundColor = view.backgroundColor
         imageView.image = UIImage(named: picArray[currentPic])
         imageView.contentMode = .center
+        
+        picArray.forEach {
+            let image = UIImage(named: $0)
+            imageArray.append(image!)
+        }
+        
+//        imageView.animationImages = imageArray
+//        imageView.animationDuration = 2
+//        imageView.animationRepeatCount = 2
+//        imageView.startAnimating()
         
         view.addSubview(imageView)
         
@@ -61,7 +71,6 @@ class ViewControllerGallery: UIViewController {
         swipeRight.addTarget(self, action: #selector(previousPic))
     }
     
-    
     /// Swipe left, next picture
     @objc func nextPic() {
         
@@ -72,7 +81,6 @@ class ViewControllerGallery: UIViewController {
         }
         
         imageView.image = UIImage(named: picArray[currentPic])
-        
     }
     
     /// Swipe to the right previous picture
