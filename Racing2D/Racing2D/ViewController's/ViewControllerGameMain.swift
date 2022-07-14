@@ -24,7 +24,7 @@ class ViewControllerGameMain: UIViewController {
     
     // MARK: - Constants
     
-    let carStep: CGFloat = 30
+    let carStep: CGFloat = 35
     
     // MARK: - Variables
     
@@ -59,9 +59,7 @@ class ViewControllerGameMain: UIViewController {
         setupCarView()
         
         moveAnotherCar()
-        
-        moveCarGesture()
-        
+                
         setupBarView()
     }
     
@@ -76,9 +74,16 @@ class ViewControllerGameMain: UIViewController {
     func alertCrash() {
         
         let alertBtn: UIAlertController = UIAlertController(
-            title: "Crash",
-            message: "GAME OVER",
+            title: "GAME OVER",
+            message: "Crash",
             preferredStyle: .alert)
+        
+        alertBtn.addAction(UIAlertAction(
+            title: "Quit",
+            style: .default) {_ in
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        )
         
         alertBtn.addAction(UIAlertAction(
             title: "New Game",
@@ -87,6 +92,7 @@ class ViewControllerGameMain: UIViewController {
                 self.setupBarView()
             }
         )
+
         self.present(alertBtn, animated: true)
     }
     
@@ -141,7 +147,7 @@ class ViewControllerGameMain: UIViewController {
         let carSwipeRight = UISwipeGestureRecognizer()
     
         carSwipeLeft.direction = .left
-        carSwipeLeft.direction = .right
+        carSwipeRight.direction = .right
         
         carSwipeLeft.addTarget(self, action: #selector(carMoveLeft))
         carSwipeRight.addTarget(self, action: #selector(carMoveRight))
@@ -189,6 +195,8 @@ class ViewControllerGameMain: UIViewController {
         carImageView.contentMode = .scaleToFill
         
         view.addSubview(carImageView)
+        
+        moveCarGesture()
     }
     
     /// Animation of stripes movement
@@ -241,22 +249,33 @@ class ViewControllerGameMain: UIViewController {
     // MARK: - Selectors
     
     @objc func carMoveLeft() {
-        print(1)
-//        if carImageView.frame.intersects(anotherCarImageView.frame) {
-//            alertCrash()
-//            print(2)
-//        } else {
-//
-//            carX -= carStep
-//
-//            carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
-//
-//            print(1)
-//        }
+    
+        if carImageView.frame.intersects(borderLeftView.frame) {
+            alertCrash()
+            print(1)
+        } else {
+
+            carX -= carStep
+
+            carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
+
+            print(2)
+        }
     
     }
     
     @objc func carMoveRight() {
-        print(2)
+        
+        if carImageView.frame.intersects(borderRightView.frame) {
+            alertCrash()
+            print(3)
+        } else {
+
+            carX += carStep
+
+            carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
+
+            print(4)
+        }
     }
 }
