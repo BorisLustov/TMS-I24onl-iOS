@@ -9,14 +9,24 @@ import UIKit
 
 class ViewControllerGameMain: UIViewController {
     
+    // MARK: - UIImages
+    
     let stripesStackView = UIStackView()
     let carImageView = UIImageView()
     let anotherCarImageView = UIImageView()
+    
+    // MARK: - UIViews
     
     let borderLeftView = UIView()
     let borderRightView = UIView()
     
     let barView = UIView()
+    
+    // MARK: - Constants
+    
+    let carStep: CGFloat = 30
+    
+    // MARK: - Variables
     
     var stripeWidth = CGFloat()
     var stripeHeight = CGFloat()
@@ -27,7 +37,12 @@ class ViewControllerGameMain: UIViewController {
     var carWidth = CGFloat()
     var carHeight = CGFloat()
     
+    var carX = CGFloat()
+    var carY = CGFloat()
+    
     var stripesOriginY = CGFloat()
+    
+    // MARK: - ViewController Lyfecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +54,13 @@ class ViewControllerGameMain: UIViewController {
         setupStripes()
         stripesAnimate()
         
-        setupCarView()
-        
         setupBorders()
         
+        setupCarView()
+        
         moveAnotherCar()
+        
+        moveCarGesture()
         
         setupBarView()
     }
@@ -51,6 +68,26 @@ class ViewControllerGameMain: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    // MARK: - Functions
+    
+    /// Crach notification
+    func alertCrash() {
+        
+        let alertBtn: UIAlertController = UIAlertController(
+            title: "Crash",
+            message: "GAME OVER",
+            preferredStyle: .alert)
+        
+        alertBtn.addAction(UIAlertAction(
+            title: "New Game",
+            style: .default) {_ in
+                self.moveAnotherCar()
+                self.setupBarView()
+            }
+        )
+        self.present(alertBtn, animated: true)
     }
     
     /// Create another car with motion animation based on random X coordinates and check for a crash with a car
@@ -78,16 +115,7 @@ class ViewControllerGameMain: UIViewController {
             // Collision check and notification
             if self.carImageView.frame.intersects(self.anotherCarImageView.frame) {
                 
-                let alertBtn: UIAlertController = UIAlertController(title: "Crash", message: "GAME OVER", preferredStyle: .alert)
-                alertBtn.addAction(UIAlertAction(
-                    title: "New Game",
-                    style: .default) {_ in
-                        self.moveAnotherCar()
-                        self.setupBarView()
-                    }
-                )
-                self.present(alertBtn, animated: true)
-                
+                self.alertCrash()
             } else {
                 
                 UIView.animate(
@@ -106,17 +134,20 @@ class ViewControllerGameMain: UIViewController {
     
     /// Moving the car using swipes
     func moveCarGesture() {
+        
+        carImageView.isUserInteractionEnabled = true
+        
         let carSwipeLeft = UISwipeGestureRecognizer()
         let carSwipeRight = UISwipeGestureRecognizer()
-        
+    
         carSwipeLeft.direction = .left
         carSwipeLeft.direction = .right
         
-        carImageView.addGestureRecognizer(carSwipeLeft)
-        carImageView.addGestureRecognizer(carSwipeRight)
-        
         carSwipeLeft.addTarget(self, action: #selector(carMoveLeft))
         carSwipeRight.addTarget(self, action: #selector(carMoveRight))
+        
+        carImageView.addGestureRecognizer(carSwipeLeft)
+        carImageView.addGestureRecognizer(carSwipeRight)
     }
     
     /// Parameters BarView
@@ -150,12 +181,13 @@ class ViewControllerGameMain: UIViewController {
         carWidth = view.bounds.width / 4
         carHeight = carWidth + 50
         
-        let carX = view.center.x + 20
-        let carY = view.frame.maxY - (carHeight + 50)
+        carX = view.center.x + 20
+        carY = view.frame.maxY - (carHeight + 50)
         
         carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
         carImageView.image = UIImage(named: "car")
         carImageView.contentMode = .scaleToFill
+        
         view.addSubview(carImageView)
     }
     
@@ -206,11 +238,25 @@ class ViewControllerGameMain: UIViewController {
         }
     }
     
+    // MARK: - Selectors
+    
     @objc func carMoveLeft() {
+        print(1)
+//        if carImageView.frame.intersects(anotherCarImageView.frame) {
+//            alertCrash()
+//            print(2)
+//        } else {
+//
+//            carX -= carStep
+//
+//            carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
+//
+//            print(1)
+//        }
     
     }
     
     @objc func carMoveRight() {
-        
+        print(2)
     }
 }
