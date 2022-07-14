@@ -13,10 +13,9 @@ class ViewControllerScoresMain: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .yellow
+        
+        title = "Scores"
     }
 
-    @IBAction func close(_ sender: Any) {
-        dismiss(animated: true)
-    }
     
 }

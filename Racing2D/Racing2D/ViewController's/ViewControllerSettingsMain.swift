@@ -13,10 +13,10 @@ class ViewControllerSettingsMain: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .cyan
+        
+        title = "Settings"
     }
 
-    @IBAction func close(_ sender: Any) {
-        dismiss(animated: true)
-    }
+
     
 }
