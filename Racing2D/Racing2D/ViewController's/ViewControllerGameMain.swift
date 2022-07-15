@@ -172,9 +172,7 @@ class ViewControllerGameMain: UIViewController {
     }
     
     private func animateBarrierCarMove() {
-        
-//        setupBarrierCar()
-        
+                
         startCoordinateBarrierCar()
         
         UIView.animate(
