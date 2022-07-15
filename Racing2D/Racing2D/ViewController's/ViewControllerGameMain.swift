@@ -7,40 +7,29 @@
 
 import UIKit
 
+enum CarMoveDirection {
+    case left, right
+}
+
 class ViewControllerGameMain: UIViewController {
     
-    // MARK: - UIImages
+    // MARK: - UIImage
     
-    let stripesStackView = UIStackView()
-    let carImageView = UIImageView()
-    let anotherCarImageView = UIImageView()
+    private let stripesStackView = UIStackView()
+    private let carImageView = UIImageView()
+    private let barrierCarImageView = UIImageView()
     
-    // MARK: - UIViews
+    // MARK: - UIView
     
-    let borderLeftView = UIView()
-    let borderRightView = UIView()
+    private let roadsideLeftView = UIView()
+    private let roadsideRightView = UIView()
     
-    let barView = UIView()
+    private let navBarView = UIView()
     
-    // MARK: - Constants
+    // MARK: - Struct objects
     
-    let carStep: CGFloat = 35
-    
-    // MARK: - Variables
-    
-    var stripeWidth = CGFloat()
-    var stripeHeight = CGFloat()
-    
-    var widthBorder = CGFloat()
-    var heightBorder = CGFloat()
-    
-    var carWidth = CGFloat()
-    var carHeight = CGFloat()
-    
-    var carX = CGFloat()
-    var carY = CGFloat()
-    
-    var stripesOriginY = CGFloat()
+    private let const = Constants()
+    private var variable = Variables()
     
     // MARK: - ViewController Lyfecycles
     
@@ -51,101 +40,112 @@ class ViewControllerGameMain: UIViewController {
         
         title = "Game"
         
+        setupStripesStackView()
         setupStripes()
-        stripesAnimate()
-        
-        setupBorders()
-        
+        animateStripesMove()
+        setupRoadsides()
         setupCarView()
-        
-        moveAnotherCar()
-                
-        setupBarView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+        setupCarSwipeGesture()
+        animateBarrierCarMove()
+        setupNavBarView()
     }
     
     // MARK: - Functions
     
-    /// Crach notification
-    func alertCrash() {
+    private func setupStripesStackView() {
         
-        let alertBtn: UIAlertController = UIAlertController(
-            title: "GAME OVER",
-            message: "Crash",
-            preferredStyle: .alert)
+        stripesStackView.translatesAutoresizingMaskIntoConstraints = false
+        stripesStackView.axis = .vertical
+        stripesStackView.alignment = .center
+        stripesStackView.spacing = 100
         
-        alertBtn.addAction(UIAlertAction(
-            title: "Quit",
-            style: .default) {_ in
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-        )
+        NSLayoutConstraint.activate([
+            stripesStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stripesStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100)
+        ])
         
-        alertBtn.addAction(UIAlertAction(
-            title: "New Game",
-            style: .default) {_ in
-                self.moveAnotherCar()
-                self.setupBarView()
-            }
-        )
-
-        self.present(alertBtn, animated: true)
+        view.addSubview(stripesStackView)
     }
     
-    /// Create another car with motion animation based on random X coordinates and check for a crash with a car
-    func moveAnotherCar() {
+    private func setupStripes() {
         
-        view.addSubview(anotherCarImageView)
+        variable.stripeWidth = view.bounds.width / 40
+        variable.stripeHeight = view.bounds.height / 10
         
-        // Parameters another car
-        anotherCarImageView.center.x = CGFloat(Int.random(in: Int(widthBorder + (carWidth / 2))...Int(view.bounds.maxX - widthBorder - (carWidth / 2))))
-        anotherCarImageView.center.y = 0
-        anotherCarImageView.bounds = CGRect(x: 0, y: 0, width: carWidth, height: carHeight)
-        anotherCarImageView.image = UIImage(named: "car2")
-        
-        // Motion animation with crash check
-        UIView.animate(
+        for _ in 1...7 {
             
-            withDuration: 2.5,
-            delay: 0,
-            options: .curveLinear
-        ) {
+            let stripe = UIView()
             
-            self.anotherCarImageView.frame.origin.y = self.carImageView.frame.origin.y - (self.carHeight / 1.5)
-        } completion: { _ in
+            stripe.backgroundColor = .white
+            stripe.translatesAutoresizingMaskIntoConstraints = false
             
-            // Collision check and notification
-            if self.carImageView.frame.intersects(self.anotherCarImageView.frame) {
-                
-                self.alertCrash()
-            } else {
-                
-                UIView.animate(
-                    withDuration: 1.2,
-                    delay: 0,
-                    options: .curveLinear
-                ) {
-                    self.anotherCarImageView.frame.origin.y = self.view.frame.maxY
-                } completion: { _ in
-                    self.moveAnotherCar()
-                    self.setupBarView()
-                }
-            }
+            NSLayoutConstraint.activate([
+                stripe.widthAnchor.constraint(equalToConstant: variable.stripeWidth),
+                stripe.heightAnchor.constraint(equalToConstant: variable.stripeHeight)
+            ])
+            
+            stripesStackView.addArrangedSubview(stripe)
         }
     }
     
-    /// Moving the car using swipes
-    func moveCarGesture() {
+    private func animateStripesMove() {
+        
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0,
+            options: .curveLinear
+        ) {
+            self.variable.stripesOriginY = self.stripesStackView.frame.origin.y
+            self.stripesStackView.frame.origin.y = 200
+        } completion: { _ in
+            self.stripesStackView.frame.origin.y = self.variable.stripesOriginY
+            self.animateStripesMove()
+        }
+    }
+    
+    private func setupRoadsides() {
+        
+        roadsideLeftView.backgroundColor = .green.withAlphaComponent(0.5)
+        roadsideRightView.backgroundColor = .green.withAlphaComponent(0.5)
+        
+        variable.roadsideWidth = view.bounds.width / 7
+        variable.roadsideHeight = view.bounds.height
+        
+        roadsideLeftView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: variable.roadsideWidth, height: variable.roadsideHeight)
+        roadsideRightView.frame = CGRect(x: view.frame.maxX - variable.roadsideWidth, y: view.frame.minY, width: variable.roadsideWidth, height: variable.roadsideHeight)
+        
+        view.addSubview(roadsideRightView)
+        view.addSubview(roadsideLeftView)
+    }
+    
+    private func startCoordinateCarView() {
+        
+        variable.carWidth = view.bounds.width / 6
+        variable.carHeight = variable.carWidth + 50
+        
+        variable.carXCoord = view.center.x + 20
+        variable.carYCoord = view.frame.maxY - (variable.carHeight + 50)
+        
+        carImageView.frame = CGRect(x: variable.carXCoord, y: variable.carYCoord, width: variable.carWidth, height: variable.carHeight)
+    }
+    
+    private func setupCarView() {
+        
+        startCoordinateCarView()
+        
+        carImageView.image = UIImage(named: "car")
+        carImageView.contentMode = .scaleToFill
+        
+        view.addSubview(carImageView)
+    }
+    
+    private func setupCarSwipeGesture() {
         
         carImageView.isUserInteractionEnabled = true
         
         let carSwipeLeft = UISwipeGestureRecognizer()
         let carSwipeRight = UISwipeGestureRecognizer()
-    
+        
         carSwipeLeft.direction = .left
         carSwipeRight.direction = .right
         
@@ -156,126 +156,143 @@ class ViewControllerGameMain: UIViewController {
         carImageView.addGestureRecognizer(carSwipeRight)
     }
     
-    /// Parameters BarView
-    func setupBarView() {
+    private func setupBarrierCar() {
         
-        barView.backgroundColor = .white
-        barView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 10)
+        view.addSubview(barrierCarImageView)
         
-        view.addSubview(barView)
+        barrierCarImageView.center.x = CGFloat(Int.random(in: Int(variable.roadsideWidth + (variable.carWidth / 2))...Int(view.bounds.maxX - variable.roadsideWidth - (variable.carWidth / 2))))
+        barrierCarImageView.center.y = 0
+        barrierCarImageView.bounds = CGRect(x: 0, y: 0, width: variable.carWidth, height: variable.carHeight)
+        barrierCarImageView.image = UIImage(named: "car2")
     }
     
-    /// Parameters borders
-    func setupBorders() {
+    private func animateBarrierCarMove() {
         
-        borderLeftView.backgroundColor = .green.withAlphaComponent(0.5)
-        borderRightView.backgroundColor = .green.withAlphaComponent(0.5)
-        
-        widthBorder = view.bounds.width / 6
-        heightBorder = view.bounds.height
-        
-        borderLeftView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: widthBorder, height: heightBorder)
-        borderRightView.frame = CGRect(x: view.frame.maxX - widthBorder, y: view.frame.minY, width: widthBorder, height: heightBorder)
-        
-        view.addSubview(borderRightView)
-        view.addSubview(borderLeftView)
-    }
-    
-    /// Parameters car view
-    func setupCarView() {
-        
-        carWidth = view.bounds.width / 4
-        carHeight = carWidth + 50
-        
-        carX = view.center.x + 20
-        carY = view.frame.maxY - (carHeight + 50)
-        
-        carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
-        carImageView.image = UIImage(named: "car")
-        carImageView.contentMode = .scaleToFill
-        
-        view.addSubview(carImageView)
-        
-        moveCarGesture()
-    }
-    
-    /// Animation of stripes movement
-    func stripesAnimate() {
+        setupBarrierCar()
         
         UIView.animate(
-            withDuration: 0.2,
+            withDuration: 2.5,
             delay: 0,
             options: .curveLinear
         ) {
-            self.stripesOriginY = self.stripesStackView.frame.origin.y
-            self.stripesStackView.frame.origin.y = 200
+            self.barrierCarImageView.frame.origin.y = self.carImageView.frame.origin.y - (self.variable.carHeight / 1.5)
         } completion: { _ in
-            self.stripesStackView.frame.origin.y = self.stripesOriginY
-            self.stripesAnimate()
+            self.checkCarCrash()
         }
     }
     
-    /// Stripes parameters
-    func setupStripes() {
+    private func checkCarCrash() {
+        if carImageView.frame.intersects(barrierCarImageView.frame) {
+            crashAlert()
+        } else {
+            UIView.animate(
+                withDuration: 1,
+                delay: 0,
+                options: .curveLinear
+            ) {
+                self.barrierCarImageView.frame.origin.y = self.view.frame.maxY
+            } completion: { _ in
+                self.animateBarrierCarMove()
+                self.setupNavBarView()
+            }
+        }
+    }
+    
+    private func setupNavBarView() {
         
-        stripeWidth = view.bounds.width / 30
-        stripeHeight = view.bounds.height / 7
+        navBarView.backgroundColor = .white
+        navBarView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 10)
         
-        stripesStackView.translatesAutoresizingMaskIntoConstraints = false
-        stripesStackView.axis = .vertical
-        stripesStackView.alignment = .center
-        stripesStackView.spacing = 100
+        view.addSubview(navBarView)
+    }
+    
+    private func crashAlert() {
         
-        view.addSubview(stripesStackView)
+        let alert: UIAlertController = UIAlertController(
+            title: "GAME OVER",
+            message: "CRASH",
+            preferredStyle: .alert
+        )
         
-        NSLayoutConstraint.activate([
-            stripesStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stripesStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100)
-        ])
+        // Exit to the Menu
+        alert.addAction(UIAlertAction(
+            title: "Quit",
+            style: .destructive
+        ) {_ in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        )
         
-        for _ in 1...7 {
-            let stripe = UIView()
-            stripe.backgroundColor = .white
-            stripe.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                stripe.widthAnchor.constraint(equalToConstant: stripeWidth),
-                stripe.heightAnchor.constraint(equalToConstant: stripeHeight)
-            ])
-            
-            stripesStackView.addArrangedSubview(stripe)
+        // Start new game
+        alert.addAction(UIAlertAction(
+            title: "New Game",
+            style: .default
+        ) {_ in
+            if self.carImageView.frame.intersects(self.barrierCarImageView.frame) {
+                self.animateBarrierCarMove()
+            }
+            self.startCoordinateCarView()
+            self.setupNavBarView()
+        }
+        )
+        self.present(alert, animated: true)
+    }
+    
+    private func moveCarTo(_ direction: CarMoveDirection) {
+        
+        switch direction {
+        case .left:
+            variable.carXCoord -= const.carMoveStep
+        case .right:
+            variable.carXCoord += const.carMoveStep
+        }
+        carImageView.frame = CGRect(x: variable.carXCoord, y: variable.carYCoord, width: variable.carWidth, height: variable.carHeight)
+        checkRoadside()
+    }
+    
+    private func checkRoadside() {
+        
+        if carImageView.frame.intersects(roadsideLeftView.frame) || carImageView.frame.intersects(roadsideRightView.frame) {
+            crashAlert()
         }
     }
     
     // MARK: - Selectors
     
-    @objc func carMoveLeft() {
-    
-        if carImageView.frame.intersects(borderLeftView.frame) {
-            alertCrash()
-            print(1)
-        } else {
-
-            carX -= carStep
-
-            carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
-
-            print(2)
-        }
-    
+    @objc private func carMoveLeft() {
+        moveCarTo(.left)
     }
     
-    @objc func carMoveRight() {
+    @objc private func carMoveRight() {
+        moveCarTo(.right)
+    }
+}
+
+extension ViewControllerGameMain {
+    
+    // MARK: - Variables
+    
+    private struct Variables {
         
-        if carImageView.frame.intersects(borderRightView.frame) {
-            alertCrash()
-            print(3)
-        } else {
-
-            carX += carStep
-
-            carImageView.frame = CGRect(x: carX, y: carY, width: carWidth, height: carHeight)
-
-            print(4)
-        }
+        var stripesOriginY = CGFloat()
+        
+        var stripeWidth = CGFloat()
+        var stripeHeight = CGFloat()
+        
+        var roadsideWidth = CGFloat()
+        var roadsideHeight = CGFloat()
+        
+        var carWidth = CGFloat()
+        var carHeight = CGFloat()
+        
+        var carXCoord = CGFloat()
+        var carYCoord = CGFloat()
+    }
+    
+    // MARK: - Constants
+    
+    private struct Constants {
+        
+        let carMoveStep: CGFloat = 40
     }
 }
