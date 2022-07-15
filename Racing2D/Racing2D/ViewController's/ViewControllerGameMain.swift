@@ -46,6 +46,7 @@ class ViewControllerGameMain: UIViewController {
         setupRoadsides()
         setupCarView()
         setupCarSwipeGesture()
+        setupBarrierCar()
         animateBarrierCarMove()
         setupNavBarView()
     }
@@ -59,12 +60,12 @@ class ViewControllerGameMain: UIViewController {
         stripesStackView.alignment = .center
         stripesStackView.spacing = 100
         
+        view.addSubview(stripesStackView)
+        
         NSLayoutConstraint.activate([
             stripesStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stripesStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100)
         ])
-        
-        view.addSubview(stripesStackView)
     }
     
     private func setupStripes() {
@@ -160,15 +161,21 @@ class ViewControllerGameMain: UIViewController {
         
         view.addSubview(barrierCarImageView)
         
-        barrierCarImageView.center.x = CGFloat(Int.random(in: Int(variable.roadsideWidth + (variable.carWidth / 2))...Int(view.bounds.maxX - variable.roadsideWidth - (variable.carWidth / 2))))
-        barrierCarImageView.center.y = 0
         barrierCarImageView.bounds = CGRect(x: 0, y: 0, width: variable.carWidth, height: variable.carHeight)
         barrierCarImageView.image = UIImage(named: "car2")
     }
     
+    private func startCoordinateBarrierCar() {
+        
+        barrierCarImageView.center.x = CGFloat(Int.random(in: Int(variable.roadsideWidth + (variable.carWidth / 2))...Int(view.bounds.maxX - variable.roadsideWidth - (variable.carWidth / 2))))
+        barrierCarImageView.center.y = 0
+    }
+    
     private func animateBarrierCarMove() {
         
-        setupBarrierCar()
+//        setupBarrierCar()
+        
+        startCoordinateBarrierCar()
         
         UIView.animate(
             withDuration: 2.5,
