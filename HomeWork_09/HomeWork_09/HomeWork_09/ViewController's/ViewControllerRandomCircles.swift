@@ -9,15 +9,17 @@ import UIKit
 
 class ViewControllerRandomCircles: UIViewController {
     
-    // Creating of array of circles
+    // MARK: - UIView
     
-    var arrayOfCircles = [UIView]()
+    private var arrayOfCircles = [UIView]()
     
-    // Parameters of circles
+    // MARK: - Struct object
     
-    let circleWidth = 100
-    let circleHeight = 100
-
+    private let const = Constants()
+    
+    
+    // MARK: - ViewController lyfecycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,15 +29,21 @@ class ViewControllerRandomCircles: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Adding gesture
+        setupGesture()
+    }
+    
+    // MARK: - Functions
+    
+    private func setupGesture() {
         
         let tapGestureOnView = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        view.addGestureRecognizer(tapGestureOnView)
         
+        view.addGestureRecognizer(tapGestureOnView)
     }
     
     /// Creating a new circle of random color according to the conditions.
-    @objc func didTap(_ gesture: UITapGestureRecognizer) {
+    @objc
+    private func didTap(_ gesture: UITapGestureRecognizer) {
         
         let newCircle = UIView()
         var circleAppended = false
@@ -48,7 +56,7 @@ class ViewControllerRandomCircles: UIViewController {
                 
                 let location = gesture.location(in: circle)
                 
-                if (location.x > 0 && location.x < 100) && (location.y > 0 && location.y < 100) {
+                if (location.x > 0 && location.x < const.circleWidth) && (location.y > 0 && location.y < const.circleHeight) {
                     circle.removeFromSuperview()
                     arrayOfCircles.remove(at: index)
                     
@@ -58,7 +66,7 @@ class ViewControllerRandomCircles: UIViewController {
             
             let point = gesture.location(in: view)
             
-            newCircle.frame = CGRect(x: Int(point.x) - (circleWidth/2), y: Int(point.y) - (circleHeight/2), width: circleWidth, height: circleHeight)
+            newCircle.frame = CGRect(x: point.x - (const.circleWidth / 2), y: point.y - (const.circleHeight / 2), width: const.circleWidth, height: const.circleHeight)
             newCircle.backgroundColor = .randomColor()
             newCircle.clipsToBounds = true
             newCircle.layer.cornerRadius = newCircle.bounds.height / 2
@@ -68,6 +76,15 @@ class ViewControllerRandomCircles: UIViewController {
             circleAppended = true
             
         } while !circleAppended
+    }
+}
+
+extension ViewControllerRandomCircles {
+    
+    private struct Constants {
+        
+        let circleWidth: CGFloat = 100
+        let circleHeight: CGFloat = 100
     }
 }
 

@@ -9,90 +9,121 @@ import UIKit
 
 class ViewControllerSwypeCircle: UIViewController {
     
-    let circle = UIView()
+    // MARK: - UIView
     
-    // Coordinates and parameters of circle
-    var xCircle = 0
-    var yCircle = 0
-    let widthCircle = 100
-    let heightCircle = 100
+    private let circle = UIView()
     
-    // Circle movement step
-    let step = 25
-
+    // MARK: - Struct objects
+    
+    private let const = Constants()
+    private var variable = Variables()
+    
+    // MARK: - ViewController lifecycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .randomColor()
-                
+        
     }
-
-    public override func viewDidAppear(_ animated: Bool) {
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        // Create circle with parameters
         
-        xCircle = (Int(view.bounds.width) / 2) - (widthCircle / 2)
-        yCircle = (Int(view.bounds.height) / 2) - (heightCircle / 2)
+        setupCircleView()
+        setupSwipeGesture(.up)
+        setupSwipeGesture(.down)
+        setupSwipeGesture(.left)
+        setupSwipeGesture(.right)
+    }
+    
+    private func setupCircleView() {
         
-        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
+        variable.xCircle = (view.bounds.width / 2) - (const.widthCircle / 2)
+        variable.yCircle = (view.bounds.height / 2) - (const.heightCircle / 2)
+        
+        circle.frame = CGRect(x: variable.xCircle, y: variable.yCircle, width: const.widthCircle, height: const.heightCircle)
         circle.backgroundColor = .randomColor()
         circle.clipsToBounds = true
         circle.layer.cornerRadius = circle.bounds.height / 2
         
         view.addSubview(circle)
-        
-        // Setting gestures
-        
-        let swypeCircleUp = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleUp))
-        swypeCircleUp.direction = .up
-        view.addGestureRecognizer(swypeCircleUp)
-        
-        let swypeCircleDown = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleDown))
-        swypeCircleDown.direction = .down
-        view.addGestureRecognizer(swypeCircleDown)
-        
-        let swypeCircleLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleLeft))
-        swypeCircleLeft.direction = .left
-        view.addGestureRecognizer(swypeCircleLeft)
-        
-        let swypeCircleRight = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleRight))
-        swypeCircleRight.direction = .right
-        view.addGestureRecognizer(swypeCircleRight)
-
     }
-
-    /// Move the circle up
-    @objc func moveCircleUp() {
-        if yCircle > (Int(view.frame.minY) + step) {
-            yCircle -= step
+        
+    private func setupSwipeGesture(_ swipe: UISwipeGestureRecognizer.Direction) {
+        
+        var swipeGesture = UISwipeGestureRecognizer()
+        
+        switch swipe {
+        case .up:
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleUp))
+            swipeGesture.direction = .up
+        case .down:
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleDown))
+            swipeGesture.direction = .down
+        case .left:
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleLeft))
+            swipeGesture.direction = .left
+        case .right:
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(moveCircleRight))
+            swipeGesture.direction = .right
+        default:
+            break
         }
-        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
+        
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
+    /// Move the circle up
+    @objc
+    private func moveCircleUp() {
+        if variable.yCircle > view.frame.minY + const.step {
+            variable.yCircle -= const.step
+        }
+        circle.frame = CGRect(x: variable.xCircle, y: variable.yCircle, width: const.widthCircle, height: const.heightCircle)
     }
     
     /// Move the circle down
-    @objc func moveCircleDown() {
-        if yCircle < ((Int(view.frame.maxY) - heightCircle) - step)  {
-            yCircle += step
+    @objc
+    private func moveCircleDown() {
+        if variable.yCircle < view.frame.maxY - const.heightCircle - const.step {
+            variable.yCircle += const.step
         }
-        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
+        circle.frame = CGRect(x: variable.xCircle, y: variable.yCircle, width: const.widthCircle, height: const.heightCircle)
     }
     
     /// Move the circle left
-    @objc func moveCircleLeft() {
-        if xCircle > (Int(view.frame.minX) + step)  {
-            xCircle -= step
+    @objc
+    private func moveCircleLeft() {
+        if variable.xCircle > view.frame.minX + const.step {
+            variable.xCircle -= const.step
         }
-        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
+        circle.frame = CGRect(x: variable.xCircle, y: variable.yCircle, width: const.widthCircle, height: const.heightCircle)
     }
     
     /// Move the circle right
-    @objc func moveCircleRight() {
-        if xCircle < ((Int(view.frame.maxX) - heightCircle) - step)  {
-            xCircle += step
+    @objc
+    private func moveCircleRight() {
+        if variable.xCircle < view.frame.maxX - const.heightCircle - const.step {
+            variable.xCircle += const.step
         }
-        circle.frame = CGRect(x: xCircle, y: yCircle, width: widthCircle, height: heightCircle)
+        circle.frame = CGRect(x: variable.xCircle, y: variable.yCircle, width: const.widthCircle, height: const.heightCircle)
+    }
+}
+
+extension ViewControllerSwypeCircle {
+    
+    private struct Constants {
+        
+        let widthCircle: CGFloat = 100
+        let heightCircle: CGFloat = 100
+        
+        let step: CGFloat = 25
     }
     
+    private struct Variables {
+        
+        var xCircle: CGFloat = 0
+        var yCircle: CGFloat = 0
+    }
 }

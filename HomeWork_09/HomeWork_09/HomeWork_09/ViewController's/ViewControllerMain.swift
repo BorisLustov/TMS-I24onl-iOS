@@ -13,34 +13,28 @@ class ViewControllerMain: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .randomColor()
-        
-        navigationController?.navigationBar.topItem?.title = "Main"
+        title = "Main"
         
     }
     
-    // Buttons
-    
     @IBAction
     func showRandomCircles() {
-        let randomCirclesStrbrd = UIStoryboard(name: "RandomCircles", bundle: nil)
-        let viewControllerRandCircles = randomCirclesStrbrd.instantiateViewController(withIdentifier: "RandomCirclesID") as! ViewControllerRandomCircles
         
+        let viewControllerRandCircles = ViewControllerRandomCircles()
         navigationController?.pushViewController(viewControllerRandCircles, animated: true)
     }
     
     @IBAction
     func showSwypeCircle() {
-        let swypeCircleStrbrd = UIStoryboard(name: "SwypeCircle", bundle: nil)
-        let viewControllerSwypeCircle = swypeCircleStrbrd.instantiateViewController(withIdentifier: "SwypeCircleID") as! ViewControllerSwypeCircle
         
+        let viewControllerSwypeCircle = ViewControllerSwypeCircle()
         navigationController?.pushViewController(viewControllerSwypeCircle, animated: true)
     }
     
     @IBAction
     func showMoveCircle() {
-        let moveCircleStrbrd = UIStoryboard(name: "MoveCircle", bundle: nil)
-        let viewControllerMoveCircle = moveCircleStrbrd.instantiateViewController(withIdentifier: "MoveCircleID") as! ViewControllerMoveCircle
-        
+       
+        let viewControllerMoveCircle = ViewControllerMoveCircle()
         navigationController?.pushViewController(viewControllerMoveCircle, animated: true)
     }
 

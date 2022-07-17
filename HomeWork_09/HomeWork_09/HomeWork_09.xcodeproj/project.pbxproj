@@ -14,11 +14,8 @@
 		A41CFB4D2876EA3200D1D28C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41CFB4C2876EA3200D1D28C /* Assets.xcassets */; };
 		A41CFB502876EA3200D1D28C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41CFB4E2876EA3200D1D28C /* LaunchScreen.storyboard */; };
 		A41CFB582876EF0A00D1D28C /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CFB572876EF0A00D1D28C /* Extentions.swift */; };
-		A41CFB5D2876F08A00D1D28C /* RandomCircles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41CFB5C2876F08A00D1D28C /* RandomCircles.storyboard */; };
 		A41CFB5F2876F0C800D1D28C /* ViewControllerRandomCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CFB5E2876F0C800D1D28C /* ViewControllerRandomCircles.swift */; };
-		A41CFB612876F16900D1D28C /* SwypeCircle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41CFB602876F16900D1D28C /* SwypeCircle.storyboard */; };
 		A41CFB632876F19600D1D28C /* ViewControllerSwypeCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CFB622876F19600D1D28C /* ViewControllerSwypeCircle.swift */; };
-		A41CFB652876F1EC00D1D28C /* MoveCircle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41CFB642876F1EC00D1D28C /* MoveCircle.storyboard */; };
 		A41CFB672876F21B00D1D28C /* ViewControllerMoveCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41CFB662876F21B00D1D28C /* ViewControllerMoveCircle.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,11 +29,8 @@
 		A41CFB4F2876EA3200D1D28C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A41CFB512876EA3200D1D28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41CFB572876EF0A00D1D28C /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		A41CFB5C2876F08A00D1D28C /* RandomCircles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RandomCircles.storyboard; sourceTree = "<group>"; };
 		A41CFB5E2876F0C800D1D28C /* ViewControllerRandomCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRandomCircles.swift; sourceTree = "<group>"; };
-		A41CFB602876F16900D1D28C /* SwypeCircle.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SwypeCircle.storyboard; sourceTree = "<group>"; };
 		A41CFB622876F19600D1D28C /* ViewControllerSwypeCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSwypeCircle.swift; sourceTree = "<group>"; };
-		A41CFB642876F1EC00D1D28C /* MoveCircle.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoveCircle.storyboard; sourceTree = "<group>"; };
 		A41CFB662876F21B00D1D28C /* ViewControllerMoveCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMoveCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,8 +88,8 @@
 			children = (
 				A41CFB472876EA3200D1D28C /* ViewControllerMain.swift */,
 				A41CFB5E2876F0C800D1D28C /* ViewControllerRandomCircles.swift */,
-				A41CFB622876F19600D1D28C /* ViewControllerSwypeCircle.swift */,
 				A41CFB662876F21B00D1D28C /* ViewControllerMoveCircle.swift */,
+				A41CFB622876F19600D1D28C /* ViewControllerSwypeCircle.swift */,
 			);
 			path = "ViewController's";
 			sourceTree = "<group>";
@@ -105,9 +99,6 @@
 			children = (
 				A41CFB4E2876EA3200D1D28C /* LaunchScreen.storyboard */,
 				A41CFB492876EA3200D1D28C /* Main.storyboard */,
-				A41CFB5C2876F08A00D1D28C /* RandomCircles.storyboard */,
-				A41CFB602876F16900D1D28C /* SwypeCircle.storyboard */,
-				A41CFB642876F1EC00D1D28C /* MoveCircle.storyboard */,
 			);
 			path = "Stroryboard's";
 			sourceTree = "<group>";
@@ -171,9 +162,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A41CFB502876EA3200D1D28C /* LaunchScreen.storyboard in Resources */,
-				A41CFB652876F1EC00D1D28C /* MoveCircle.storyboard in Resources */,
-				A41CFB5D2876F08A00D1D28C /* RandomCircles.storyboard in Resources */,
-				A41CFB612876F16900D1D28C /* SwypeCircle.storyboard in Resources */,
 				A41CFB4D2876EA3200D1D28C /* Assets.xcassets in Resources */,
 				A41CFB4B2876EA3200D1D28C /* Main.storyboard in Resources */,
 			);
