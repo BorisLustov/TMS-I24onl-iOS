@@ -9,18 +9,14 @@ import UIKit
 
 class ViewControllerGallery: UIViewController {
     
-    // MARK: - UIImageViews
+    // MARK: - UIImageView
     
-    let imageView = UIImageView()
+    private let imageView = UIImageView()
     
-    // MARK: - Constants
+    // MARK: - Struct objects
     
-    let picArray = ["pic1","pic2","pic3","pic4"]
-    
-    // MARK: - Variables
-    
-    var currentPic = 0
-    var imageArray = [UIImage]()
+    private let const = Constants()
+    private var variable = Variables()
     
     // MARK: - View Lyfecycle
     
@@ -28,33 +24,25 @@ class ViewControllerGallery: UIViewController {
         super.viewDidLoad()
         
         title = "Gallery"
-
         view.backgroundColor = .white
         
-        imageView.frame = view.bounds
-        imageView.backgroundColor = view.backgroundColor
-        imageView.image = UIImage(named: picArray[currentPic])
-        imageView.contentMode = .center
-        
-        picArray.forEach {
-            let image = UIImage(named: $0)
-            imageArray.append(image!)
-        }
-        
-//        imageView.animationImages = imageArray
-//        imageView.animationDuration = 2
-//        imageView.animationRepeatCount = 2
-//        imageView.startAnimating()
-        
-        view.addSubview(imageView)
-        
-        gesture()
+        setupImageView()
+        setupGestureImageView()
     }
     
     // MARK: - Functions
     
-    /// Setting swipes by pictures
-    func gesture() {
+    private func setupImageView() {
+        
+        imageView.frame = view.bounds
+        imageView.backgroundColor = view.backgroundColor
+        imageView.image = UIImage(named: const.picArray[variable.currentPic])
+        imageView.contentMode = .center
+        
+        view.addSubview(imageView)
+    }
+    
+    private func setupGestureImageView() {
         
         let swipeLeft = UISwipeGestureRecognizer()
         let swipeRight = UISwipeGestureRecognizer()
@@ -72,27 +60,39 @@ class ViewControllerGallery: UIViewController {
     }
     
     /// Swipe left, next picture
-    @objc func nextPic() {
+    @objc private func nextPic() {
         
-        if currentPic == picArray.count - 1 {
-            currentPic = 0
+        if variable.currentPic == const.picArray.count - 1 {
+            variable.currentPic = 0
         } else {
-            currentPic += 1
+            variable.currentPic += 1
         }
         
-        imageView.image = UIImage(named: picArray[currentPic])
+        imageView.image = UIImage(named: const.picArray[variable.currentPic])
     }
     
-    /// Swipe to the right previous picture
-    @objc func previousPic() {
+    /// Swipe right, previous picture
+    @objc private func previousPic() {
         
-        if currentPic == 0 {
-            currentPic = picArray.count - 1
+        if variable.currentPic == 0 {
+            variable.currentPic = const.picArray.count - 1
         } else {
-            currentPic -= 1
+            variable.currentPic -= 1
         }
         
-        imageView.image = UIImage(named: picArray[currentPic])
+        imageView.image = UIImage(named: const.picArray[variable.currentPic])
     }
+}
 
+extension ViewControllerGallery {
+        
+    private struct Constants {
+        
+        let picArray = ["pic1","pic2","pic3","pic4"]
+    }
+        
+    private struct Variables {
+        
+        var currentPic = 0
+    }
 }

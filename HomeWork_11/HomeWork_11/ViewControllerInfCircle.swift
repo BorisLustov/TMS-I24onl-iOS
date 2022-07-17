@@ -7,30 +7,21 @@
 
 import UIKit
 
+enum CircleDirection {
+    case up, down, left, right
+}
+
 class ViewControllerInfCircle: UIViewController {
     
-    // MARK: - UIViews
+    // MARK: - UIView
     
-    let circle = UIView()
-    let viewForCircle = UIView()
+    private let circle = UIView()
+    private let viewForCircle = UIView()
     
-    // MARK: - UIButtons
+    // MARK: - Struct objects
     
-    let startBtn = UIButton()
-    
-    // MARK: - Constants
-    
-    let widthBtn = 100
-    let heightBtn = 50
-    
-    let circleWidth = 100
-    
-    let duration = 0.5
-    let delay = 0
-    
-    // MARK: - Variables
-    
-    var start = false
+    private let const = Constants()
+    private var variable = Variables()
     
     // MARK: - View lyfecycles
     
@@ -38,7 +29,6 @@ class ViewControllerInfCircle: UIViewController {
         super.viewDidLoad()
         
         title = "Infinity Circle"
-        
         view.backgroundColor = .lightGray
     }
     
@@ -46,107 +36,76 @@ class ViewControllerInfCircle: UIViewController {
         super.viewDidAppear(animated)
         
         setupViewForCircle()
-        //setupStartButton()
         setupCircleView()
-        
-        view.addSubview(viewForCircle)
-        view.addSubview(startBtn)
-        viewForCircle.addSubview(circle)
-        
-        startCircleMove()
+                
+        moveCircleTo(.up)
     }
     
     // MARK: - Functions
     
-    /// Setting parameters for the circle movement field
-    func setupViewForCircle() {
-        
+    private func setupViewForCircle() {
+
         viewForCircle.backgroundColor = view.backgroundColor
         viewForCircle.frame = CGRect(x: view.frame.minX, y: view.center.y / 2, width: view.bounds.width, height: view.bounds.width)
+
+        view.addSubview(viewForCircle)
+
     }
-    
-    /// Setting the parameters of the circle
-    func setupCircleView() {
-        
+
+    private func setupCircleView() {
+
         circle.backgroundColor = .randomColor()
-        circle.frame = CGRect(x: Int(viewForCircle.bounds.minX), y: Int(viewForCircle.bounds.maxY) - circleWidth, width: circleWidth, height: circleWidth)
+        circle.frame = CGRect(x: Int(viewForCircle.bounds.minX), y: Int(viewForCircle.bounds.maxY) - const.circleWidth, width: const.circleWidth, height: const.circleWidth)
         circle.layer.cornerRadius = circle.bounds.width / 2
         circle.clipsToBounds = true
+
+        viewForCircle.addSubview(circle)
     }
     
-//    func setupStartButton() {
-//
-//        let xBtn = Int(view.center.x) - (widthBtn / 2)
-//        let yBtn = Int(view.bounds.maxY) - (heightBtn * 2)
-//
-//        startBtn.frame = CGRect(x: xBtn, y: yBtn, width: widthBtn, height: heightBtn)
-//        startBtn.backgroundColor = .black
-//        startBtn.layer.cornerRadius = startBtn.bounds.height / 2
-//        startBtn.clipsToBounds = true
-//        startBtn.setTitle("Start", for: .normal)
-//        startBtn.addTarget(self, action: #selector(ifStart), for: .touchUpInside)
-//    }
-    
-    /// Starting animation of the circle movement
-    func startCircleMove() {
+    private func moveCircleTo(_ direction: CircleDirection) {
+        
         UIView.animate(
-            withDuration: duration,
-            delay: TimeInterval(delay),
+            withDuration: const.duration,
+            delay: TimeInterval(const.delay),
             options: .curveLinear
         ) {
-            self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.minX), y: Int(self.viewForCircle.bounds.minY), width: self.circleWidth, height: self.circleWidth)
+            switch direction {
+            case .up:
+                self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.minX), y: Int(self.viewForCircle.bounds.minY), width: self.const.circleWidth, height: self.const.circleWidth)
+            case .down:
+                self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.maxX) - self.const.circleWidth, y: Int(self.viewForCircle.bounds.maxY) - self.const.circleWidth, width: self.const.circleWidth, height: self.const.circleWidth)
+            case .left:
+                self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.minX), y: Int(self.viewForCircle.bounds.maxY) - self.const.circleWidth, width: self.const.circleWidth, height: self.const.circleWidth)
+            case .right:
+                self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.maxX) - self.const.circleWidth, y: Int(self.viewForCircle.bounds.minY), width: self.const.circleWidth, height: self.const.circleWidth)
+            }
         } completion: { _ in
-            self.secondCircleMove()
+            switch direction {
+            case .up:
+                self.moveCircleTo(.right)
+            case .down:
+                self.moveCircleTo(.left)
+            case .left:
+                self.moveCircleTo(.up)
+            case .right:
+                self.moveCircleTo(.down)
+            }
         }
     }
-    
-    /// Second animation of the circle movement
-    func secondCircleMove() {
-        UIView.animate(
-            withDuration: duration,
-            delay: TimeInterval(delay),
-            options: .curveLinear
-        ) {
-            self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.maxX) - self.circleWidth, y: Int(self.viewForCircle.bounds.minY), width: self.circleWidth, height: self.circleWidth)
-        } completion: { _ in
-            self.thirdCircleMove()
-        }
+}
+
+extension ViewControllerInfCircle {
+        
+    private struct Constants {
+        
+        let circleWidth = 100
+        
+        let duration = 0.5
+        let delay = 0
     }
-    
-    /// Third animation of the circle movement
-    func thirdCircleMove() {
-        UIView.animate(
-            withDuration: duration,
-            delay: TimeInterval(delay),
-            options: .curveLinear
-        ) {
-            self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.maxX) - self.circleWidth, y: Int(self.viewForCircle.bounds.maxY) - self.circleWidth, width: self.circleWidth, height: self.circleWidth)
-        } completion: { _ in
-            self.finalCircleMove()
-        }
+        
+    private struct Variables {
+        
+        var start = false
     }
-    
-    /// Final animation of the circle movement
-    func finalCircleMove() {
-        UIView.animate(
-            withDuration: duration,
-            delay: TimeInterval(delay),
-            options: .curveLinear
-        ) {
-            self.circle.frame = CGRect(x: Int(self.viewForCircle.bounds.minX), y: Int(self.viewForCircle.bounds.maxY) - self.circleWidth, width: self.circleWidth, height: self.circleWidth)
-        } completion: { _ in
-            self.startCircleMove()
-        }
-    }
-    
-//    @objc
-//    func ifStart() {
-//        if start == false {
-//            start = true
-//        } else {
-//            start = false
-//        }
-//
-//        print(start)
-//    }
 }
