@@ -12,7 +12,7 @@ class ViewControllerMain: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.title = "Main"
+        title = "Main"
     }
     
     @IBAction
