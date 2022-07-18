@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     // MARK: - UIStackView
     
-    private let allStackButton = UIStackView()
+    private let allStackView = UIStackView()
     
     private let firstStackButton = UIStackView()
     private let secondStackButton = UIStackView()
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     private let fourStackButton = UIStackView()
     private let fifthStackButton = UIStackView()
     
-    private let sixStackView = UIStackView()
+    private let resultStackView = UIStackView()
     
     // MARK: - UIButton
     
@@ -64,12 +64,14 @@ class ViewController: UIViewController {
         
         setupAllStackView()
         
-        setupStackView(sixStackView)
+        setupResultStackView()
         setupStackView(fifthStackButton)
         setupStackView(fourStackButton)
         setupStackView(thirdStackButton)
         setupStackView(secondStackButton)
         setupStackView(firstStackButton)
+        
+        setupResultLable()
         
         setupButton(number0, "0", .numbers, firstStackButton)
         setupButton(dot, ",", .numbers, firstStackButton)
@@ -95,19 +97,36 @@ class ViewController: UIViewController {
         setupButton(persent, "%", .operating, fifthStackButton)
         setupButton(division, "/", .calculating, fifthStackButton)
         
+        AC.addTarget(self, action: #selector(ac), for: .touchUpInside)
+        number1.addTarget(self, action: #selector(num1), for: .touchUpInside)
+        
+    }
+    
+    @objc
+    private func ac() {
+        resultLabel.text = "0"
+    }
+    
+    @objc
+    private func num1() {
+        if resultLabel.text == "0" {
+            resultLabel.text?.removeAll()
+        }
+        resultLabel.text?.append(contentsOf: "1")
+        
     }
     
     private func setupAllStackView() {
         
-        allStackButton.translatesAutoresizingMaskIntoConstraints = false
-        allStackButton.axis = .vertical
-        allStackButton.alignment = .center
-        allStackButton.spacing = 10
+        allStackView.translatesAutoresizingMaskIntoConstraints = false
+        allStackView.axis = .vertical
+        allStackView.alignment = .center
+        allStackView.spacing = 10
         
-        view.addSubview(allStackButton)
+        view.addSubview(allStackView)
         
         NSLayoutConstraint.activate([
-            allStackButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            allStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
     
@@ -118,7 +137,21 @@ class ViewController: UIViewController {
         stack.alignment = .center
         stack.spacing = 10
         
-        allStackButton.addArrangedSubview(stack)
+        allStackView.addArrangedSubview(stack)
+    }
+    
+    private func setupResultStackView() {
+        
+        resultStackView.translatesAutoresizingMaskIntoConstraints = false
+        resultStackView.axis = .horizontal
+        resultStackView.alignment = .center
+        
+        allStackView.addArrangedSubview(resultStackView)
+        
+        NSLayoutConstraint.activate([
+            resultStackView.leadingAnchor.constraint(equalTo: allStackView.leadingAnchor, constant: 20),
+            resultStackView.trailingAnchor.constraint(equalTo: allStackView.trailingAnchor, constant: -20),
+        ])
     }
     
     private func setupButton(_ button: UIButton, _ text: String, _ typeButton: TypeOfButton, _ stack: UIStackView) {
@@ -211,6 +244,18 @@ class ViewController: UIViewController {
         
         button.addSubview(lable)
     }
+    
+    private func setupResultLable() {
+        
+        resultLabel.frame = resultStackView.bounds
+        resultLabel.text = "0"
+        resultLabel.textAlignment = .right
+        resultLabel.textColor = .white
+        resultLabel.font = UIFont.systemFont(ofSize: 90, weight: .thin)
+        resultStackView.addArrangedSubview(resultLabel)
+    }
+    
+    
 }
 
 extension ViewController {
