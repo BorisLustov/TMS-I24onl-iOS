@@ -23,45 +23,53 @@ class ViewController: UIViewController {
     private let fourStackButton = UIStackView()
     private let fifthStackButton = UIStackView()
     
+    private let sixStackView = UIStackView()
+    
+    // MARK: - UIButton
+    
     private let number0 = UIButton()
-    let number1 = UIButton()
-    let number2 = UIButton()
-    let number3 = UIButton()
-    let number4 = UIButton()
-    let number5 = UIButton()
-    let number6 = UIButton()
-    let number7 = UIButton()
-    let number8 = UIButton()
-    let number9 = UIButton()
-    let dot = UIButton()
+    private let number1 = UIButton()
+    private let number2 = UIButton()
+    private let number3 = UIButton()
+    private let number4 = UIButton()
+    private let number5 = UIButton()
+    private let number6 = UIButton()
+    private let number7 = UIButton()
+    private let number8 = UIButton()
+    private let number9 = UIButton()
+    private let dot = UIButton()
     
-    let AC = UIButton()
-    let plusOrMinus = UIButton()
-    let persent = UIButton()
+    private let AC = UIButton()
+    private let plusOrMinus = UIButton()
+    private let persent = UIButton()
     
-    let division = UIButton()
-    let multiplication = UIButton()
-    let subtraction = UIButton()
-    let addition = UIButton()
-    let equally = UIButton()
+    private let division = UIButton()
+    private let multiplication = UIButton()
+    private let subtraction = UIButton()
+    private let addition = UIButton()
+    private let equally = UIButton()
+    
+    // MARK: - UILabel
+    
+    private let resultLabel = UILabel()
     
     // MARK: - Struct objects
     
     private var variable = Variables()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .black
         
-        setupAllStackButton()
+        setupAllStackView()
         
-        setupStackButton(fifthStackButton)
-        setupStackButton(fourStackButton)
-        setupStackButton(thirdStackButton)
-        setupStackButton(secondStackButton)
-        setupStackButton(firstStackButton)
+        setupStackView(sixStackView)
+        setupStackView(fifthStackButton)
+        setupStackView(fourStackButton)
+        setupStackView(thirdStackButton)
+        setupStackView(secondStackButton)
+        setupStackView(firstStackButton)
         
         setupButton(number0, "0", .numbers, firstStackButton)
         setupButton(dot, ",", .numbers, firstStackButton)
@@ -89,7 +97,8 @@ class ViewController: UIViewController {
         
     }
     
-    private func setupAllStackButton() {
+    private func setupAllStackView() {
+        
         allStackButton.translatesAutoresizingMaskIntoConstraints = false
         allStackButton.axis = .vertical
         allStackButton.alignment = .center
@@ -98,11 +107,11 @@ class ViewController: UIViewController {
         view.addSubview(allStackButton)
         
         NSLayoutConstraint.activate([
-            allStackButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            allStackButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
     
-    private func setupStackButton(_ stack: UIStackView) {
+    private func setupStackView(_ stack: UIStackView) {
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -114,9 +123,25 @@ class ViewController: UIViewController {
     
     private func setupButton(_ button: UIButton, _ text: String, _ typeButton: TypeOfButton, _ stack: UIStackView) {
         
+        sizesOfButton()
+        
+        colorForButton(button, typeButton)
+        
+        setupAppearanceOfButton(button)
+
+        addButtonToStackView(button, stack)
+        
+        lableForButton(button, text, typeButton)
+    }
+    
+    private func sizesOfButton() {
+        
         variable.width = view.bounds.width / 4.5
         variable.height = variable.width
         variable.widthZero = (variable.width * 2) + 10
+    }
+    
+    private func colorForButton(_ button: UIButton, _ typeButton: TypeOfButton) {
         
         switch typeButton {
         case .numbers:
@@ -126,6 +151,9 @@ class ViewController: UIViewController {
         case .operating:
             button.backgroundColor = .lightGray
         }
+    }
+    
+    private func setupAppearanceOfButton(_ button: UIButton) {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -146,6 +174,9 @@ class ViewController: UIViewController {
                 
         button.layer.cornerRadius = button.bounds.height / 2
         button.clipsToBounds = true
+    }
+    
+    private func addButtonToStackView(_ button: UIButton, _ stack: UIStackView) {
         
         switch stack {
         case firstStackButton:
@@ -161,6 +192,9 @@ class ViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    private func lableForButton(_ button: UIButton, _ text: String, _ typeButton: TypeOfButton) {
         
         let lable = UILabel()
         lable.frame = button.bounds
