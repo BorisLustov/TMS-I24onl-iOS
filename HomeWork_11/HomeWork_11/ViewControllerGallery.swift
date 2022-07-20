@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewControllerGallery: UIViewController {
+final class ViewControllerGallery: UIViewController {
     
     // MARK: - UIImageView
     
@@ -23,41 +23,15 @@ class ViewControllerGallery: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Gallery"
-        view.backgroundColor = .white
+        setupAppearanceView()
         
-        setupImageView()
-        setupGestureImageView()
+        embedViews()
+        setupLayout()
+        setupAppearanceImageView()
+        setupGestureSwipe()
     }
     
-    // MARK: - Functions
-    
-    private func setupImageView() {
-        
-        imageView.frame = view.bounds
-        imageView.backgroundColor = view.backgroundColor
-        imageView.image = UIImage(named: const.picArray[variable.currentPic])
-        imageView.contentMode = .center
-        
-        view.addSubview(imageView)
-    }
-    
-    private func setupGestureImageView() {
-        
-        let swipeLeft = UISwipeGestureRecognizer()
-        let swipeRight = UISwipeGestureRecognizer()
-        
-        swipeLeft.direction = .left
-        swipeRight.direction = .right
-        
-        imageView.isUserInteractionEnabled = true
-        
-        imageView.addGestureRecognizer(swipeLeft)
-        imageView.addGestureRecognizer(swipeRight)
-        
-        swipeLeft.addTarget(self, action: #selector(nextPic))
-        swipeRight.addTarget(self, action: #selector(previousPic))
-    }
+    // MARK: - Selectors
     
     /// Swipe left, next picture
     @objc private func nextPic() {
@@ -84,15 +58,117 @@ class ViewControllerGallery: UIViewController {
     }
 }
 
-extension ViewControllerGallery {
+// MARK: - Embed views
+
+private extension ViewControllerGallery {
+    
+    func embedViews() {
+        view.addSubview(imageView)
+    }
+}
+
+// MARK: - Setup layout
+
+private extension ViewControllerGallery {
+    
+    func setupLayout() {
         
-    private struct Constants {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
+        let constraints = [
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ]
+                
+        let height = NSLayoutConstraint(
+            item: imageView,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: view,
+            attribute: .height,
+            multiplier: 0.7,
+            constant: 0
+        )
+        
+        let width = NSLayoutConstraint(
+            item: imageView,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: view,
+            attribute: .width,
+            multiplier: 0.7,
+            constant: 0
+        )
+        
+        height.isActive = true
+        width.isActive = true
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+}
+
+// MARK: - Setup appearance
+
+private extension ViewControllerGallery {
+    
+    func setupAppearanceView() {
+        title = "Gallery"
+        view.backgroundColor = .white
+    }
+    
+    func setupAppearanceImageView() {
+        imageView.backgroundColor = view.backgroundColor
+        imageView.image = UIImage(named: const.picArray[variable.currentPic])
+        imageView.contentMode = .scaleToFill
+        imageView.addShadow(.black)
+    }
+}
+
+// MARK: - Setup gesture
+
+private extension ViewControllerGallery {
+    
+    func setupGestureSwipe() {
+        let swipeLeft = UISwipeGestureRecognizer()
+        let swipeRight = UISwipeGestureRecognizer()
+        
+        swipeLeft.direction = .left
+        swipeRight.direction = .right
+        
+        imageView.isUserInteractionEnabled = true
+        
+        imageView.addGestureRecognizer(swipeLeft)
+        imageView.addGestureRecognizer(swipeRight)
+        
+        swipeLeft.addTarget(self, action: #selector(nextPic))
+        swipeRight.addTarget(self, action: #selector(previousPic))
+    }
+}
+
+// MARK: - Constants & Variables
+
+private extension ViewControllerGallery {
+    
+    struct Constants {
         let picArray = ["pic1","pic2","pic3","pic4"]
     }
-        
-    private struct Variables {
-        
+    
+    struct Variables {
         var currentPic = 0
+    }
+}
+
+// MARK: - Shadow for UIView
+
+extension UIView {
+    
+    /// shadowOpacity = 0.7
+    /// shadowRadius = 10
+    func addShadow(_ color: UIColor) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = 0.7
+        layer.shadowOffset = CGSize(width: -1, height: 1)
+        layer.shadowRadius = 10
     }
 }
