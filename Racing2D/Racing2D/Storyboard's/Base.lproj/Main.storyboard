@@ -33,115 +33,14 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="rUI-hD-6Bw">
-                                <rect key="frame" x="153" y="338.5" width="108" height="219"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0e-m0-oYX">
-                                        <rect key="frame" x="0.0" y="0.0" width="108" height="49"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="Omu-vn-nay"/>
-                                            <constraint firstAttribute="height" constant="49" id="c8w-WZ-tii"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Game">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="goToGameMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mDt-BQ-weg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnY-Hl-i2e">
-                                        <rect key="frame" x="0.0" y="85" width="108" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="amx-uh-poT"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="cEc-6Y-aiZ"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Scores">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="goToScoresMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VW-PR-ikG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v14-Ht-6xc">
-                                        <rect key="frame" x="0.0" y="171" width="108" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="AL2-ai-bxj"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="pj6-mO-7YK"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Settings">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="goToSettingsMain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jei-s4-NBt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="rUI-hD-6Bw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P9H-kB-1FO"/>
-                            <constraint firstItem="rUI-hD-6Bw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yDD-xB-kgc"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SQc-GA-9AX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="507" y="98"/>
-        </scene>
-        <!--View Controller Game Main-->
-        <scene sceneID="mPv-hE-la7">
-            <objects>
-                <viewController id="ZrS-Fw-Ohv" customClass="ViewControllerGameMain" customModule="Racing2D" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="X4U-A3-mi3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="VMg-Jh-EgH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kIO-4B-2bZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1171" y="-564"/>
-        </scene>
-        <!--View Controller Scores Main-->
-        <scene sceneID="1tO-37-ndR">
-            <objects>
-                <viewController id="XUl-b6-Ium" customClass="ViewControllerScoresMain" customModule="Racing2D" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YKk-gq-mix">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ODT-NK-284"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Pg-bK-gJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1170" y="98"/>
-        </scene>
-        <!--View Controller Settings Main-->
-        <scene sceneID="xhg-VH-aYt">
-            <objects>
-                <viewController id="hsh-31-k6H" customClass="ViewControllerSettingsMain" customModule="Racing2D" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="64r-DF-KYz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="4nf-ak-3Oe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OMS-6E-hHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1170" y="781"/>
         </scene>
     </scenes>
     <resources>
