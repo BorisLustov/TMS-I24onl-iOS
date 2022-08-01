@@ -125,20 +125,31 @@ private extension ViewControllerMain {
     }
     
     func setupAppearanceButton(_ button: UIButton, _ enumButton: Buttons) {
+        var text = String()
+        
         button.backgroundColor = .white
         button.layer.cornerRadius = const.heightsButton / 2
         button.clipsToBounds = true
         button.setTitleColor(.black, for: .normal)
-        button.addShadow(.black)
+        button.titleLabel?.font = .init(name: "Miratrix-Normal", size:20)
         
         switch enumButton {
         case .game:
-            button.setTitle("Game", for: .normal)
+            text = "GAME"
         case .scores:
-            button.setTitle("Scores", for: .normal)
+            text = "SCORES"
         case .settings:
-            button.setTitle("Settings", for: .normal)
+            text = "SETTINGS"
         }
+                
+        let attributeText = NSMutableAttributedString(string: text)
+        let colorText = [NSAttributedString.Key.foregroundColor: UIColor.red]
+        attributeText.addAttributes(colorText, range: NSRange(location: 0, length: 1))
+        button.titleLabel?.attributedText = attributeText
+        
+        button.setAttributedTitle(button.titleLabel?.attributedText, for: .normal)
+        
+        button.addShadow(.black)
     }
 }
 

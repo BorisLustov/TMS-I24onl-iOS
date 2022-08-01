@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A4B30C4F288982AE00439859 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B30C4E288982AE00439859 /* UIView+Shadow.swift */; };
+		A4CC0E0A2897E289001244B9 /* Miratrix-Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = A4CC0E092897E289001244B9 /* Miratrix-Normal.otf */; };
 		A4D0EB3A286D1CC000D0A3C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D0EB39286D1CC000D0A3C3 /* AppDelegate.swift */; };
 		A4D0EB3C286D1CC000D0A3C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D0EB3B286D1CC000D0A3C3 /* SceneDelegate.swift */; };
 		A4D0EB3E286D1CC000D0A3C3 /* ViewControllerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D0EB3D286D1CC000D0A3C3 /* ViewControllerMain.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		A4B30C4E288982AE00439859 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		A4CC0E092897E289001244B9 /* Miratrix-Normal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Miratrix-Normal.otf"; sourceTree = "<group>"; };
 		A4D0EB36286D1CC000D0A3C3 /* Racing2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Racing2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D0EB39286D1CC000D0A3C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4D0EB3B286D1CC000D0A3C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A429F0922897CD370040F78D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A4CC0E092897E289001244B9 /* Miratrix-Normal.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A4B30C4D2889828D00439859 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		A4D0EB38286D1CC000D0A3C3 /* Racing2D */ = {
 			isa = PBXGroup;
 			children = (
+				A429F0922897CD370040F78D /* Fonts */,
 				A4B30C4D2889828D00439859 /* Extensions */,
 				A4D0EB4D286D1D7400D0A3C3 /* ViewController's */,
 				A4D0EB4E286D1D8500D0A3C3 /* Storyboard's */,
@@ -161,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CC0E0A2897E289001244B9 /* Miratrix-Normal.otf in Resources */,
 				A4D0EB46286D1CC100D0A3C3 /* LaunchScreen.storyboard in Resources */,
 				A4D0EB43286D1CC100D0A3C3 /* Assets.xcassets in Resources */,
 				A4D0EB41286D1CC000D0A3C3 /* Main.storyboard in Resources */,
