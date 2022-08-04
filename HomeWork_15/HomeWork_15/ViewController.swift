@@ -16,6 +16,11 @@ final class ViewController: UIViewController {
     private let menuView = UIView()
     
     private let buttonsStack = UIStackView()
+    private let lableStack = UIStackView()
+    
+    private let lableOne = UILabel()
+    private let lableTwo = UILabel()
+    private let lableThree = UILabel()
     
     private let alertButton = UIButton()
     private let alertPasswordButton = UIButton()
@@ -40,11 +45,15 @@ final class ViewController: UIViewController {
         setupLayoutBurgerButton()
         setupLayoutBurgerMenu()
         setupLayoutCloseMenuButton()
+        setupLayoutLablesStack()
         
         setupAppearanceButton(alertButton, .alert)
         setupAppearanceButton(alertPasswordButton, .alertWithPassword)
         setupAppearanceBurgerButton()
         setupAppearanceBurgerMenu()
+        setupAppearanceLable(lableOne, "- Settings")
+        setupAppearanceLable(lableTwo, "- Parameters")
+        setupAppearanceLable(lableThree, "- Appearance")
         
         addActionToButton(alertButton, .alert)
         addActionToButton(alertPasswordButton, .alertWithPassword)
@@ -66,12 +75,32 @@ private extension ViewController {
         buttonsStack.addArrangedSubview(alertPasswordButton)
         
         view.addSubview(menuView)
+        
+        menuView.addSubview(lableStack)
+        lableStack.addArrangedSubview(lableOne)
+        lableStack.addArrangedSubview(lableTwo)
+        lableStack.addArrangedSubview(lableThree)
     }
 }
 
 // MARK: - Setup Layout
 
 private extension ViewController {
+    
+    func setupLayoutLablesStack() {
+        lableStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        let constraints = [
+            lableStack.centerXAnchor.constraint(equalTo: menuView.centerXAnchor, constant: -30),
+            lableStack.centerYAnchor.constraint(equalTo: menuView.centerYAnchor, constant: -200)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+        lableStack.axis = .vertical
+        lableStack.alignment = .leading
+        lableStack.spacing = 35
+    }
     
     func setupLayoutButtonsStack() {
         buttonsStack.translatesAutoresizingMaskIntoConstraints = false
@@ -140,6 +169,10 @@ private extension ViewController {
     
     func setupAppearanceView() {
         view.backgroundColor = .orange
+    }
+    
+    func setupAppearanceLable(_ lable: UILabel, _ lableText: String) {
+        lable.text = lableText
     }
     
     func setupAppearanceButton(_ button: UIButton, _ enumAlert: AlertType) {
