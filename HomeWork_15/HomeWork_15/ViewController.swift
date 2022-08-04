@@ -59,7 +59,6 @@ final class ViewController: UIViewController {
 private extension ViewController {
     
     func embedViews() {
-        view.addSubview(closeMenuButton)
         view.addSubview(buttonsStack)
         view.addSubview(burgerButton)
         
@@ -233,7 +232,8 @@ private extension ViewController {
     @objc func showBurgerMenu() {
         let menuAnimate = menuView.transform.translatedBy(x: menuView.bounds.width, y: 0)
         
-//        view.addBlurEffect(.dark)
+        view.addBlurEffect(.dark)
+        view.addSubview(closeMenuButton)
         
         UIView.animate(withDuration: 0.3) {
             self.menuView.transform = menuAnimate
@@ -243,6 +243,9 @@ private extension ViewController {
     
     @objc func closeBurgerMenu() {
         let menuAnimate = menuView.transform.translatedBy(x: -menuView.bounds.width, y: 0)
+        
+        view.removeBlur()
+        closeMenuButton.removeFromSuperview()
         
         UIView.animate(withDuration: 0.3) {
             self.menuView.transform = menuAnimate
@@ -263,6 +266,14 @@ private extension UIView {
         
         addSubview(blurEffectView)
         blurEffectView.layer.zPosition = 500
+    }
+    
+    func removeBlur() {
+        for view in subviews {
+            if view is UIVisualEffectView {
+                view.removeFromSuperview()
+            }
+        }
     }
 }
 
